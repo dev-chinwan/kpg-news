@@ -2,7 +2,7 @@ import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import NewsGrid from "@/components/NewsGrid";
 import { getAllNews, getCategories, getLocations } from "@/lib/news";
-import { normalizeLang, t, localizedHref } from "@/lib/i18n";
+import { normalizeLang, localizedHref } from "@/lib/i18n";
 
 const PAGE_SIZE = 9;
 
@@ -10,11 +10,8 @@ export async function generateMetadata({ searchParams }) {
   const sp = await searchParams;
   const lang = normalizeLang(sp?.lang);
   return {
-    title: t("latestNews", lang),
-    description:
-      lang === "hi"
-        ? "सभी ताज़ा और पुरानी खबरें एक ही जगह।"
-        : "All the latest and older local news in one place.",
+    title: "ताज़ा खबरें",
+    description: "सभी ताज़ा और पुरानी खबरें एक ही जगह।",
   };
 }
 
@@ -44,7 +41,7 @@ export default async function AllNewsPage({ searchParams }) {
     <SiteShell lang={lang}>
       <div className="max-w-content mx-auto px-4 py-8">
         <h1 className={`${fontHi} text-2xl md:text-3xl font-bold text-ink border-b-2 border-ink pb-3 mb-6`}>
-          {currentPage === 1 ? t("latestNews", lang) : t("olderNews", lang)}
+          {currentPage === 1 ? "ताज़ा खबरें" : "पुरानी खबरें"}
         </h1>
 
         {pageArticles.length > 0 ? (
@@ -57,7 +54,7 @@ export default async function AllNewsPage({ searchParams }) {
           />
         ) : (
           <div className="py-12 text-center">
-            <p className={`text-lg font-semibold text-ink ${fontBodyHi}`}>{t("noResults", lang)}</p>
+            <p className={`text-lg font-semibold text-ink ${fontBodyHi}`}>कोई खबर नहीं मिली</p>
           </div>
         )}
 

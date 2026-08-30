@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
-import { t, localizedHref } from "@/lib/i18n";
+import { localizedHref } from "@/lib/i18n";
 
 export default function SearchBox({ lang, initialQuery = "", compact = false }) {
   const [query, setQuery] = useState(initialQuery);
@@ -23,7 +23,7 @@ export default function SearchBox({ lang, initialQuery = "", compact = false }) 
     <form
       onSubmit={handleSubmit}
       role="search"
-      aria-label={t("search", lang)}
+      aria-label="खोज"
       className={`flex items-center gap-2 border border-rule rounded-full bg-white ${
         compact ? "px-3 py-1.5" : "px-4 py-2"
       }`}
@@ -33,8 +33,8 @@ export default function SearchBox({ lang, initialQuery = "", compact = false }) 
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder={t("searchPlaceholder", lang)}
-        aria-label={t("searchPlaceholder", lang)}
+        placeholder="खबर, शहर, विषय खोजें..."
+        aria-label="खबर, शहर, विषय खोजें"
         className={`w-full outline-none bg-transparent text-ink placeholder:text-slate/70 ${
           lang === "hi" ? "font-body-hi" : "font-body"
         } text-sm`}

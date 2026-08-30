@@ -45,16 +45,16 @@ const monoFont = IBM_Plex_Mono({
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: {
-    default: "Local News — Your City. Your News.",
-    template: "%s | Local News",
+    default: "लोकल न्यूज़ — आपका शहर, आपकी खबर",
+    template: "%s | लोकल न्यूज़",
   },
   description:
-    "A bilingual (English/Hindi) local news portal covering local, politics, business, crime, education, sports and weather news. Demo content.",
+    "स्थानीय, राजनीति, व्यापार, अपराध, शिक्षा, खेल और मौसम की खबरों के लिए हिंदी न्यूज़ पोर्टल।",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="hi">
       <body
         className={`${displayFont.variable} ${bodyFont.variable} ${displayFontHi.variable} ${bodyFontHi.variable} ${monoFont.variable} font-body bg-paper text-ink antialiased`}
       >

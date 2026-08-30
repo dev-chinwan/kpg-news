@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { pick, localizedHref, t } from "@/lib/i18n";
+import { pick, localizedHref } from "@/lib/i18n";
 
 export default function LocationSelector({ locations, lang, activeLocation }) {
   const fontHi = lang === "hi" ? "font-display-hi" : "font-display";
@@ -13,7 +13,7 @@ export default function LocationSelector({ locations, lang, activeLocation }) {
         className={`${fontHi} text-lg font-bold uppercase tracking-wide text-ink mb-4 flex items-center gap-2`}
       >
         <MapPin size={18} className="text-sindoor" aria-hidden="true" />
-        {t("byLocation", lang)}
+        शहर के अनुसार खबरें
       </h2>
       <div className="flex flex-wrap gap-2">
         {locations.map((loc) => {

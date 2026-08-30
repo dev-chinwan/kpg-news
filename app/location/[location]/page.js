@@ -8,7 +8,7 @@ import {
   getLocations,
   getNewsByLocation,
 } from "@/lib/news";
-import { normalizeLang, pick, localizedHref, t } from "@/lib/i18n";
+import { normalizeLang, pick, localizedHref } from "@/lib/i18n";
 
 export async function generateStaticParams() {
   const locations = await getLocations();
@@ -21,14 +21,11 @@ export async function generateMetadata({ params, searchParams }) {
   const lang = normalizeLang(sp?.lang);
   const location = await getLocationById(locationId);
 
-  if (!location) return { title: t("locationNotFound", lang) };
+  if (!location) return { title: "शहर नहीं मिला" };
 
   return {
     title: pick(location.name, lang),
-    description:
-      lang === "hi"
-        ? `${pick(location.name, lang)} की ताज़ा खबरें`
-        : `Latest news from ${pick(location.name, "en")}`,
+    description: `${pick(location.name, lang)} की ताज़ा खबरें`,
   };
 }
 
@@ -82,7 +79,7 @@ export default async function LocationPage({ params, searchParams }) {
                   : "border-rule text-slate hover:text-ink"
               }`}
             >
-              {t("allCategories", lang)}
+              सभी
             </Link>
             {categoriesInLocation.map((c) => (
               <Link
@@ -112,9 +109,9 @@ export default async function LocationPage({ params, searchParams }) {
         ) : (
           <div className="py-16 text-center">
             <p className={`text-lg font-semibold text-ink mb-2 ${fontBodyHi}`}>
-              {t("noResults", lang)}
+              कोई खबर नहीं मिली
             </p>
-            <p className={`text-sm text-slate ${fontBodyHi}`}>{t("noResultsHint", lang)}</p>
+            <p className={`text-sm text-slate ${fontBodyHi}`}>कृपया दूसरी श्रेणी चुनें या बाद में दोबारा देखें।</p>
           </div>
         )}
       </div>

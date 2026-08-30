@@ -8,7 +8,6 @@ import {
   localizedHref,
   formatDateTime,
   timeAgo,
-  t,
 } from "@/lib/i18n";
 
 export default function ArticleView({
@@ -26,6 +25,8 @@ export default function ArticleView({
   const fontBodyHi = lang === "hi" ? "font-body-hi" : "font-body";
   const paragraphs = pick(article.content, lang);
   const paragraphList = Array.isArray(paragraphs) ? paragraphs : [paragraphs];
+  const summaryText =
+    pick(article.summary, lang) || paragraphList.find((p) => p && p.trim()) || "विस्तृत खबर पढ़ें";
   const wordCount = paragraphList.join(" ").split(/\s+/).length;
   const minutes = Math.max(1, Math.round(wordCount / 200));
 
@@ -34,7 +35,7 @@ export default function ArticleView({
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className={`text-xs text-slate mb-4 ${fontBodyHi}`}>
         <Link href={localizedHref("/", lang)} className="hover:text-sindoor">
-          {t("home", lang)}
+          होम
         </Link>
         <span className="mx-1.5" aria-hidden="true">/</span>
         <Link
@@ -58,27 +59,27 @@ export default function ArticleView({
           </h1>
 
           <p className={`mt-4 text-lg text-slate leading-relaxed ${fontBodyHi}`}>
-            {pick(article.summary, lang)}
+            {summaryText}
           </p>
 
           <div className={`mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate border-y border-rule py-3 ${fontBodyHi}`}>
             <span>
-              {t("by", lang)} <span className="font-semibold text-ink">{article.author}</span>
+              लेखक <span className="font-semibold text-ink">{article.author}</span>
             </span>
             <span aria-hidden="true">•</span>
             <span title={formatDateTime(article.publishedAt, lang)}>
-              {t("publishedOn", lang)} {timeAgo(article.publishedAt, lang)}
+              प्रकाशित {timeAgo(article.publishedAt, lang)}
             </span>
             {article.updatedAt && article.updatedAt !== article.publishedAt && (
               <>
                 <span aria-hidden="true">•</span>
                 <span title={formatDateTime(article.updatedAt, lang)}>
-                  {t("updatedOn", lang)} {timeAgo(article.updatedAt, lang)}
+                  अपडेट {timeAgo(article.updatedAt, lang)}
                 </span>
               </>
             )}
             <span aria-hidden="true">•</span>
-            <span>{minutes} {t("minRead", lang)}</span>
+            <span>{minutes} मिनट में पढ़ें</span>
           </div>
 
           <div className="relative w-full aspect-[16/9] my-6 overflow-hidden bg-paper-dim">
@@ -101,7 +102,7 @@ export default function ArticleView({
           {article.tags && article.tags.length > 0 && (
             <div className="mt-6 flex flex-wrap items-center gap-2">
               <span className={`text-xs uppercase tracking-wide text-slate font-semibold ${fontBodyHi}`}>
-                {t("tags", lang)}:
+                टैग:
               </span>
               {article.tags.map((tag) => (
                 <span
@@ -124,7 +125,7 @@ export default function ArticleView({
                 id="related-heading"
                 className={`${fontHi} text-lg font-bold uppercase tracking-wide text-ink mb-4`}
               >
-                {t("relatedNews", lang)}
+                संबंधित खबरें
               </h2>
               <NewsGrid
                 articles={relatedArticles}

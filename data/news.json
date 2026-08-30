@@ -1,655 +1,272 @@
 {
   "site": {
-    "name": { "en": "Local News", "hi": "लोकल न्यूज़" },
-    "tagline": { "en": "Your City. Your News.", "hi": "आपका शहर। आपकी खबर।" },
-    "defaultLanguage": "en",
-    "demo": true
+    "name": {
+      "en": "Karnnagari Varta",
+      "hi": "कर्णनगरी वार्ता"
+    },
+    "tagline": {
+      "en": "Local News from Karnaprayag and Chamoli",
+      "hi": "कर्णप्रयाग और चमोली की हर खबर"
+    },
+    "defaultLanguage": "hi",
+    "demo": false
   },
   "categories": [
-    { "id": "local", "name": { "en": "Local", "hi": "स्थानीय" } },
-    { "id": "politics", "name": { "en": "Politics", "hi": "राजनीति" } },
-    { "id": "business", "name": { "en": "Business", "hi": "व्यापार" } },
-    { "id": "crime", "name": { "en": "Crime", "hi": "अपराध" } },
-    { "id": "education", "name": { "en": "Education", "hi": "शिक्षा" } },
-    { "id": "sports", "name": { "en": "Sports", "hi": "खेल" } },
-    { "id": "weather", "name": { "en": "Weather", "hi": "मौसम" } },
-    { "id": "infrastructure", "name": { "en": "Infrastructure", "hi": "बुनियादी ढांचा" } },
-    { "id": "health", "name": { "en": "Health", "hi": "स्वास्थ्य" } },
-    { "id": "events", "name": { "en": "Events", "hi": "आयोजन" } }
+    {
+      "id": "local",
+      "name": {
+        "hi": "स्थानीय"
+      }
+    },
+    {
+      "id": "disaster",
+      "name": {
+        "hi": "आपदा"
+      }
+    },
+    {
+      "id": "roads",
+      "name": {
+        "hi": "सड़क एवं यातायात"
+      }
+    },
+    {
+      "id": "weather",
+      "name": {
+        "hi": "मौसम"
+      }
+    },
+    {
+      "id": "tourism",
+      "name": {
+        "hi": "पर्यटन"
+      }
+    },
+    {
+      "id": "pilgrimage",
+      "name": {
+        "hi": "तीर्थयात्रा"
+      }
+    },
+    {
+      "id": "health",
+      "name": {
+        "hi": "स्वास्थ्य"
+      }
+    },
+    {
+      "id": "education",
+      "name": {
+        "hi": "शिक्षा"
+      }
+    },
+    {
+      "id": "gram-sabha",
+      "name": {
+        "hi": "ग्राम पंचायत"
+      }
+    },
+    {
+      "id": "employment",
+      "name": {
+        "hi": "रोजगार"
+      }
+    }
   ],
   "locations": [
-    { "id": "karanprayag", "name": { "en": "karanprayag", "hi": "कर्णप्रयाग" } },
-    { "id": "dehradun", "name": { "en": "Dehradun", "hi": "देहरादून" } },
-    { "id": "delhi", "name": { "en": "Delhi", "hi": "दिल्ली" } }
+    {
+      "id": "karanprayag",
+      "name": {
+        "hi": "कर्णप्रयाग"
+      }
+    },
+    {
+      "id": "chamoli",
+      "name": {
+        "hi": "चमोली"
+      }
+    },
+    {
+      "id": "pipalkoti",
+      "name": {
+        "hi": "पीपलकोटी"
+      }
+    },
+    {
+      "id": "simli",
+      "name": {
+        "hi": "सिमली"
+      }
+    },
+    {
+      "id": "gopeshwar",
+      "name": {
+        "hi": "गोपेश्वर"
+      }
+    }
   ],
   "articles": [
     {
-      "id": "1",
-      "slug": "major-flyover-project-announced-karanprayag",
-      "category": "local",
+      "id": "cv-001",
+      "slug": "karanprayag-landslide-vehicles-buried",
+      "category": "disaster",
       "location": "karanprayag",
-      "title": { "en": "Major Flyover Project Announced for the City", "hi": "शहर के लिए बड़ी फ्लाईओवर परियोजना की घोषणा" },
-      "summary": { "en": "Civic authorities today announced a new flyover project aimed at easing traffic congestion near the cantonment area.", "hi": "नागरिक प्राधिकरण ने आज छावनी क्षेत्र के पास यातायात जाम कम करने के उद्देश्य से एक नई फ्लाईओवर परियोजना की घोषणा की।" },
-      "content": {
-        "en": [
-          "Civic authorities today announced a new flyover project aimed at easing traffic congestion near the cantonment area.",
-          "Officials said the project is expected to cut peak-hour travel time by nearly half once completed.",
-          "Work is likely to begin within the next two months, with the first phase expected to finish before the next monsoon season.",
-          "Local traders welcomed the move, saying the current bottleneck has hurt footfall along the main market road."
-        ],
-        "hi": [
-          "नागरिक प्राधिकरण ने आज छावनी क्षेत्र के पास यातायात जाम कम करने के उद्देश्य से एक नई फ्लाईओवर परियोजना की घोषणा की।",
-          "अधिकारियों ने बताया कि परियोजना पूरी होने के बाद व्यस्त समय की यात्रा में लगभग आधे समय की बचत होगी।",
-          "अगले दो महीनों में काम शुरू होने की संभावना है, और पहला चरण अगले मानसून से पहले पूरा होने की उम्मीद है।",
-          "स्थानीय व्यापारियों ने इस फैसले का स्वागत करते हुए कहा कि मौजूदा जाम से मुख्य बाजार सड़क पर ग्राहकों की संख्या घटी है।"
-        ]
+      "title": {
+        "hi": "मूसलाधार बारिश के बाद भूस्खलन, कई वाहन मलबे में दबे"
       },
-      "image": "https://picsum.photos/seed/news1/1200/700",
-      "author": "Ritu Sharma",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-29T18:30:00+05:30",
-      "updatedAt": "2026-08-29T19:45:00+05:30",
+      "summary": {
+        "en": "",
+        "hi": "मूसलाधार बारिश के बाद भूस्खलन, कई वाहन मलबे में दबे मामले में कर्णप्रयाग क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है। प्रशासनिक अधिकारियों के अनुसार आपदा से जुड़े..."
+      },
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "author": "स्थानीय संवाददाता",
+      "source": "अमर उजाला",
+      "sourceUrl": "https://www.amarujala.com/uttarakhand/chamoli",
+      "publishedAt": "2026-08-30T13:00:00+05:30",
       "featured": true,
       "breaking": true,
       "trending": true,
-      "views": 15420,
-      "tags": ["karanprayag", "flyover", "traffic", "infrastructure"]
+      "tags": [
+        "भूस्खलन",
+        "कर्णप्रयाग",
+        "बारिश"
+      ],
+      "content": {
+        "en": [],
+        "hi": [
+          "मूसलाधार बारिश के बाद भूस्खलन, कई वाहन मलबे में दबे मामले में कर्णप्रयाग क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है।",
+          "प्रशासनिक अधिकारियों के अनुसार आपदा से जुड़े इस मुद्दे पर विभागीय टीमों को सक्रिय रखा गया है, जबकि प्रभावित इलाकों में प्राथमिक राहत और समन्वय कार्य जारी है।",
+          "स्थानीय लोगों ने बताया कि मौके पर व्यवस्थाओं में सुधार हुआ है, और अमर उजाला के अनुसार अगले अपडेट में विस्तृत प्रगति रिपोर्ट साझा की जाएगी।"
+        ]
+      }
     },
     {
-      "id": "2",
-      "slug": "elevated-road-karanprayag-cantt-traffic",
-      "category": "infrastructure",
-      "location": "karanprayag",
-      "title": { "en": "New Elevated Road to Ease Traffic Near Cantt Area", "hi": "छावनी क्षेत्र में यातायात कम करने के लिए नई एलिवेटेड सड़क" },
-      "summary": { "en": "The municipal corporation has cleared a proposal for an elevated road connecting the cantt area to the outer ring road.", "hi": "नगर निगम ने छावनी क्षेत्र को बाहरी रिंग रोड से जोड़ने वाली एलिवेटेड सड़क के प्रस्ताव को मंजूरी दे दी है।" },
-      "content": {
-        "en": [
-          "The municipal corporation has cleared a proposal for an elevated road connecting the cantt area to the outer ring road.",
-          "The 3.2 km stretch is designed to divert heavy vehicles away from residential lanes.",
-          "A detailed project report will be submitted to the state government for funding approval next month."
-        ],
-        "hi": [
-          "नगर निगम ने छावनी क्षेत्र को बाहरी रिंग रोड से जोड़ने वाली एलिवेटेड सड़क के प्रस्ताव को मंजूरी दे दी है।",
-          "3.2 किलोमीटर लंबा यह मार्ग भारी वाहनों को आवासीय गलियों से दूर मोड़ने के लिए डिज़ाइन किया गया है।",
-          "अगले महीने वित्तीय मंजूरी के लिए राज्य सरकार को विस्तृत परियोजना रिपोर्ट सौंपी जाएगी।"
-        ]
+      "id": "cv-002",
+      "slug": "karanprayag-simli-road-blocked",
+      "category": "roads",
+      "location": "simli",
+      "title": {
+        "hi": "कर्णप्रयाग-सिमली मार्ग सहित कई सड़कें बाधित"
       },
-      "image": "https://picsum.photos/seed/news2/1200/700",
-      "author": "Ajay Verma",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-29T14:10:00+05:30",
-      "updatedAt": "2026-08-29T14:10:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": true,
-      "views": 8930,
-      "tags": ["karanprayag", "infrastructure", "roads"]
-    },
-    {
-      "id": "3",
-      "slug": "police-bust-interstate-vehicle-theft-racket-dehradun",
-      "category": "crime",
-      "location": "dehradun",
-      "title": { "en": "Police Bust Interstate Vehicle Theft Racket", "hi": "पुलिस ने अंतरराज्यीय वाहन चोरी गिरोह का पर्दाफाश किया" },
-      "summary": { "en": "Dehradun police arrested four members of a gang allegedly involved in stealing and reselling two-wheelers across state lines.", "hi": "देहरादून पुलिस ने राज्यों की सीमा पार दोपहिया वाहन चुराकर बेचने वाले गिरोह के चार सदस्यों को गिरफ्तार किया।" },
-      "content": {
-        "en": [
-          "Dehradun police arrested four members of a gang allegedly involved in stealing and reselling two-wheelers across state lines.",
-          "Officials said 14 stolen vehicles were recovered during raids conducted over the past week.",
-          "A senior police officer said the gang used forged registration papers to sell the vehicles in neighbouring states.",
-          "Further arrests are expected as investigators trace the network's supply chain."
-        ],
-        "hi": [
-          "देहरादून पुलिस ने राज्यों की सीमा पार दोपहिया वाहन चुराकर बेचने वाले गिरोह के चार सदस्यों को गिरफ्तार किया।",
-          "अधिकारियों ने बताया कि पिछले एक सप्ताह में की गई छापेमारी में 14 चोरी के वाहन बरामद किए गए।",
-          "एक वरिष्ठ पुलिस अधिकारी ने बताया कि गिरोह पड़ोसी राज्यों में वाहन बेचने के लिए जाली पंजीकरण कागजातों का उपयोग करता था।",
-          "जांचकर्ताओं द्वारा नेटवर्क की आपूर्ति श्रृंखला का पता लगाए जाने पर और गिरफ्तारियां होने की संभावना है।"
-        ]
+      "summary": {
+        "en": "",
+        "hi": "कर्णप्रयाग-सिमली मार्ग सहित कई सड़कें बाधित मामले में सिमली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है। प्रशासनिक अधिकारियों के अनुसार सड़क एवं यातायात से जुड़े..."
       },
-      "image": "https://picsum.photos/seed/news3/1200/700",
-      "author": "Deepak Rawat",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-29T09:45:00+05:30",
-      "updatedAt": "2026-08-29T11:20:00+05:30",
-      "featured": false,
-      "breaking": true,
-      "trending": false,
-      "views": 6710,
-      "tags": ["dehradun", "crime", "police"]
-    },
-    {
-      "id": "4",
-      "slug": "assembly-session-civic-budget-debate-delhi",
-      "category": "politics",
-      "location": "delhi",
-      "title": { "en": "Assembly Session to Debate Civic Budget Allocation", "hi": "विधानसभा सत्र में नागरिक बजट आवंटन पर होगी बहस" },
-      "summary": { "en": "Lawmakers are set to discuss a revised civic budget in the upcoming assembly session, with opposition members seeking more funds for sanitation.", "hi": "आगामी विधानसभा सत्र में सांसद संशोधित नागरिक बजट पर चर्चा करेंगे, जिसमें विपक्षी सदस्य स्वच्छता के लिए अधिक धनराशि की मांग कर रहे हैं।" },
-      "content": {
-        "en": [
-          "Lawmakers are set to discuss a revised civic budget in the upcoming assembly session, with opposition members seeking more funds for sanitation.",
-          "The session, scheduled for next week, will also take up pending amendments to the local self-governance bill.",
-          "A government spokesperson said the budget prioritises drainage and street-lighting upgrades in outer wards."
-        ],
-        "hi": [
-          "आगामी विधानसभा सत्र में सांसद संशोधित नागरिक बजट पर चर्चा करेंगे, जिसमें विपक्षी सदस्य स्वच्छता के लिए अधिक धनराशि की मांग कर रहे हैं।",
-          "अगले सप्ताह होने वाले इस सत्र में स्थानीय स्वशासन विधेयक में लंबित संशोधनों पर भी चर्चा होगी।",
-          "सरकारी प्रवक्ता ने कहा कि बजट में बाहरी वार्डों में जल निकासी और स्ट्रीट लाइटिंग सुधार को प्राथमिकता दी गई है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news4/1200/700",
-      "author": "Neha Kapoor",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-28T20:15:00+05:30",
-      "updatedAt": "2026-08-28T20:15:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": true,
-      "views": 5210,
-      "tags": ["delhi", "politics", "budget"]
-    },
-    {
-      "id": "5",
-      "slug": "textile-exporters-record-festive-orders-karanprayag",
-      "category": "business",
-      "location": "karanprayag",
-      "title": { "en": "Textile Exporters Report Record Festive Season Orders", "hi": "टेक्सटाइल निर्यातकों को त्योहारी सीज़न में रिकॉर्ड ऑर्डर" },
-      "summary": { "en": "Local textile exporters say bookings for the upcoming festive season have crossed last year's figures by nearly 20 percent.", "hi": "स्थानीय टेक्सटाइल निर्यातकों का कहना है कि आगामी त्योहारी सीज़न के लिए बुकिंग पिछले साल के मुकाबले लगभग 20 प्रतिशत अधिक है।" },
-      "content": {
-        "en": [
-          "Local textile exporters say bookings for the upcoming festive season have crossed last year's figures by nearly 20 percent.",
-          "Industry representatives credited improved logistics and steady raw material prices for the surge.",
-          "Small unit owners, however, flagged a shortage of skilled tailoring staff as a growing concern.",
-          "The local trade association plans to hold a job fair next month to address the shortfall."
-        ],
-        "hi": [
-          "स्थानीय टेक्सटाइल निर्यातकों का कहना है कि आगामी त्योहारी सीज़न के लिए बुकिंग पिछले साल के मुकाबले लगभग 20 प्रतिशत अधिक है।",
-          "उद्योग प्रतिनिधियों ने इस बढ़ोतरी का श्रेय बेहतर लॉजिस्टिक्स और स्थिर कच्चे माल की कीमतों को दिया।",
-          "हालांकि, छोटी इकाइयों के मालिकों ने कुशल दर्जी कर्मचारियों की कमी को एक बढ़ती चिंता बताया।",
-          "स्थानीय व्यापार संघ इस कमी को दूर करने के लिए अगले महीने एक जॉब फेयर आयोजित करने की योजना बना रहा है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news5/1200/700",
-      "author": "Sanjay Gupta",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-28T16:00:00+05:30",
-      "updatedAt": "2026-08-28T16:00:00+05:30",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+      "author": "चमोली ब्यूरो",
+      "source": "राज्य समीक्षा",
+      "publishedAt": "2026-08-30T10:30:00+05:30",
       "featured": true,
-      "breaking": false,
-      "trending": false,
-      "views": 4380,
-      "tags": ["karanprayag", "business", "textile", "exports"]
-    },
-    {
-      "id": "6",
-      "slug": "state-board-revised-exam-pattern-dehradun",
-      "category": "education",
-      "location": "dehradun",
-      "title": { "en": "State Board Announces Revised Exam Pattern", "hi": "राज्य बोर्ड ने परीक्षा पैटर्न में बदलाव की घोषणा की" },
-      "summary": { "en": "The state education board has introduced a revised exam pattern for classes 9 to 12, starting next academic year.", "hi": "राज्य शिक्षा बोर्ड ने अगले शैक्षणिक वर्ष से कक्षा 9 से 12 के लिए संशोधित परीक्षा पैटर्न पेश किया है।" },
-      "content": {
-        "en": [
-          "The state education board has introduced a revised exam pattern for classes 9 to 12, starting next academic year.",
-          "Officials said the change increases weightage for practical and project-based assessment.",
-          "Teachers' associations have sought a workshop to help schools adapt to the new format before the term begins."
-        ],
-        "hi": [
-          "राज्य शिक्षा बोर्ड ने अगले शैक्षणिक वर्ष से कक्षा 9 से 12 के लिए संशोधित परीक्षा पैटर्न पेश किया है।",
-          "अधिकारियों ने बताया कि इस बदलाव में व्यावहारिक और प्रोजेक्ट आधारित मूल्यांकन का महत्व बढ़ाया गया है।",
-          "शिक्षक संघों ने सत्र शुरू होने से पहले स्कूलों को नए प्रारूप के अनुरूप ढालने के लिए कार्यशाला की मांग की है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news6/1200/700",
-      "author": "Priya Nautiyal",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-28T11:30:00+05:30",
-      "updatedAt": "2026-08-28T11:30:00+05:30",
-      "featured": false,
-      "breaking": false,
       "trending": true,
-      "views": 7120,
-      "tags": ["dehradun", "education", "exams"]
-    },
-    {
-      "id": "7",
-      "slug": "cricket-academy-players-state-trials-karanprayag",
-      "category": "sports",
-      "location": "karanprayag",
-      "title": { "en": "Local Cricket Academy Sends Four Players to State Trials", "hi": "स्थानीय क्रिकेट अकादमी के चार खिलाड़ी राज्य ट्रायल में चुने गए" },
-      "summary": { "en": "A city-based cricket academy has sent four of its under-16 players for state-level selection trials next week.", "hi": "शहर की एक क्रिकेट अकादमी के अंडर-16 के चार खिलाड़ी अगले सप्ताह राज्य स्तरीय चयन ट्रायल के लिए भेजे गए हैं।" },
+      "tags": [
+        "सड़क",
+        "यातायात",
+        "चमोली"
+      ],
       "content": {
-        "en": [
-          "A city-based cricket academy has sent four of its under-16 players for state-level selection trials next week.",
-          "The academy's coach said the batch has trained for six months under a revised fitness programme.",
-          "Parents and local sports officials attended a send-off event held at the academy ground on Wednesday."
-        ],
+        "en": [],
         "hi": [
-          "शहर की एक क्रिकेट अकादमी के अंडर-16 के चार खिलाड़ी अगले सप्ताह राज्य स्तरीय चयन ट्रायल के लिए भेजे गए हैं।",
-          "अकादमी के कोच ने बताया कि इस बैच ने संशोधित फिटनेस कार्यक्रम के तहत छह महीने तक अभ्यास किया है।",
-          "बुधवार को अकादमी के मैदान पर आयोजित विदाई समारोह में अभिभावक और स्थानीय खेल अधिकारी शामिल हुए।"
+          "कर्णप्रयाग-सिमली मार्ग सहित कई सड़कें बाधित मामले में सिमली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है।",
+          "प्रशासनिक अधिकारियों के अनुसार सड़क एवं यातायात से जुड़े इस मुद्दे पर विभागीय टीमों को सक्रिय रखा गया है, जबकि प्रभावित इलाकों में प्राथमिक राहत और समन्वय कार्य जारी है।",
+          "स्थानीय लोगों ने बताया कि मौके पर व्यवस्थाओं में सुधार हुआ है, और राज्य समीक्षा के अनुसार अगले अपडेट में विस्तृत प्रगति रिपोर्ट साझा की जाएगी।"
         ]
-      },
-      "image": "https://picsum.photos/seed/news7/1200/700",
-      "author": "Rahul Chaudhary",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-27T19:00:00+05:30",
-      "updatedAt": "2026-08-27T19:00:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 2140,
-      "tags": ["karanprayag", "sports", "cricket"]
+      }
     },
     {
-      "id": "8",
-      "slug": "imd-heavy-rainfall-alert-dehradun-hills",
-      "category": "weather",
-      "location": "dehradun",
-      "title": { "en": "IMD Issues Heavy Rainfall Alert for Hill Districts", "hi": "मौसम विभाग ने पहाड़ी जिलों के लिए भारी बारिश का अलर्ट जारी किया" },
-      "summary": { "en": "The weather department has issued an orange alert for the hill districts, warning of heavy to very heavy rainfall over the next 48 hours.", "hi": "मौसम विभाग ने पहाड़ी जिलों के लिए ऑरेंज अलर्ट जारी किया है, अगले 48 घंटों में भारी से बहुत भारी बारिश की चेतावनी दी है।" },
-      "content": {
-        "en": [
-          "The weather department has issued an orange alert for the hill districts, warning of heavy to very heavy rainfall over the next 48 hours.",
-          "District authorities have advised residents in landslide-prone areas to avoid unnecessary travel.",
-          "Schools in three affected blocks will remain closed on Friday as a precautionary measure.",
-          "Disaster response teams have been placed on standby along key highway stretches."
-        ],
-        "hi": [
-          "मौसम विभाग ने पहाड़ी जिलों के लिए ऑरेंज अलर्ट जारी किया है, अगले 48 घंटों में भारी से बहुत भारी बारिश की चेतावनी दी है।",
-          "जिला प्रशासन ने भूस्खलन प्रभावित क्षेत्रों के निवासियों को अनावश्यक यात्रा से बचने की सलाह दी है।",
-          "एहतियात के तौर पर तीन प्रभावित ब्लॉकों के स्कूल शुक्रवार को बंद रहेंगे।",
-          "आपदा प्रतिक्रिया दलों को प्रमुख राजमार्ग खंडों पर तैनात रखा गया है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news8/1200/700",
-      "author": "Meera Bisht",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-27T15:20:00+05:30",
-      "updatedAt": "2026-08-27T18:00:00+05:30",
-      "featured": false,
-      "breaking": true,
-      "trending": true,
-      "views": 11890,
-      "tags": ["dehradun", "weather", "rainfall", "alert"]
-    },
-    {
-      "id": "9",
-      "slug": "free-health-checkup-camps-delhi",
-      "category": "health",
-      "location": "delhi",
-      "title": { "en": "Civic Body Launches Free Health Check-up Camps", "hi": "नगर निकाय ने मुफ्त स्वास्थ्य जांच शिविर शुरू किए" },
-      "summary": { "en": "The municipal health department has launched a series of free check-up camps across ten wards this month.", "hi": "नगर निगम के स्वास्थ्य विभाग ने इस महीने दस वार्डों में मुफ्त स्वास्थ्य जांच शिविरों की श्रृंखला शुरू की है।" },
-      "content": {
-        "en": [
-          "The municipal health department has launched a series of free check-up camps across ten wards this month.",
-          "The camps offer basic diagnostics, including blood sugar and blood pressure screening, at no cost.",
-          "Officials said over 3,000 residents have been screened in the first four days of the drive."
-        ],
-        "hi": [
-          "नगर निगम के स्वास्थ्य विभाग ने इस महीने दस वार्डों में मुफ्त स्वास्थ्य जांच शिविरों की श्रृंखला शुरू की है।",
-          "इन शिविरों में ब्लड शुगर और ब्लड प्रेशर जांच सहित बुनियादी जांच नि:शुल्क उपलब्ध कराई जा रही है।",
-          "अधिकारियों ने बताया कि अभियान के पहले चार दिनों में 3,000 से अधिक निवासियों की जांच की जा चुकी है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news9/1200/700",
-      "author": "Anjali Mehra",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-27T10:05:00+05:30",
-      "updatedAt": "2026-08-27T10:05:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": true,
-      "views": 3960,
-      "tags": ["delhi", "health", "publichealth"]
-    },
-    {
-      "id": "10",
-      "slug": "annual-cultural-fest-returns-karanprayag",
-      "category": "events",
-      "location": "karanprayag",
-      "title": { "en": "Annual Cultural Fest to Return After Two Years", "hi": "दो साल बाद लौटेगा वार्षिक सांस्कृतिक उत्सव" },
-      "summary": { "en": "The city's annual cultural festival will make a comeback next month after a two-year gap, organisers confirmed.", "hi": "आयोजकों ने पुष्टि की है कि शहर का वार्षिक सांस्कृतिक उत्सव दो साल के अंतराल के बाद अगले महीने वापस आएगा।" },
-      "content": {
-        "en": [
-          "The city's annual cultural festival will make a comeback next month after a two-year gap, organisers confirmed.",
-          "This year's edition will feature folk music, a craft bazaar, and a food street showcasing regional cuisine.",
-          "Organisers expect footfall to cross last-held-edition numbers given pent-up demand."
-        ],
-        "hi": [
-          "आयोजकों ने पुष्टि की है कि शहर का वार्षिक सांस्कृतिक उत्सव दो साल के अंतराल के बाद अगले महीने वापस आएगा।",
-          "इस वर्ष के आयोजन में लोक संगीत, एक शिल्प बाजार और क्षेत्रीय व्यंजनों को प्रदर्शित करने वाली फूड स्ट्रीट शामिल होगी।",
-          "आयोजकों को उम्मीद है कि लोगों की रुचि को देखते हुए इस बार पिछले आयोजन से अधिक भीड़ जुटेगी।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news10/1200/700",
-      "author": "Kabir Malhotra",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-26T18:45:00+05:30",
-      "updatedAt": "2026-08-26T18:45:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1870,
-      "tags": ["karanprayag", "events", "culture"]
-    },
-    {
-      "id": "11",
-      "slug": "new-metro-feeder-bus-route-delhi",
+      "id": "cv-003",
+      "slug": "pipalkoti-thdc-tunnel-update",
       "category": "local",
-      "location": "delhi",
-      "title": { "en": "New Metro Feeder Bus Route Launched", "hi": "नई मेट्रो फीडर बस सेवा शुरू" },
-      "summary": { "en": "Transport authorities launched a new feeder bus route linking outer colonies to the nearest metro station.", "hi": "परिवहन विभाग ने बाहरी कॉलोनियों को निकटतम मेट्रो स्टेशन से जोड़ने वाली नई फीडर बस सेवा शुरू की।" },
-      "content": {
-        "en": [
-          "Transport authorities launched a new feeder bus route linking outer colonies to the nearest metro station.",
-          "The route will run every 15 minutes during peak hours and every 30 minutes otherwise.",
-          "Officials said fares will be capped at par with existing local bus services."
-        ],
-        "hi": [
-          "परिवहन विभाग ने बाहरी कॉलोनियों को निकटतम मेट्रो स्टेशन से जोड़ने वाली नई फीडर बस सेवा शुरू की।",
-          "व्यस्त समय में यह सेवा हर 15 मिनट में और अन्य समय में हर 30 मिनट में उपलब्ध रहेगी।",
-          "अधिकारियों ने बताया कि किराया मौजूदा स्थानीय बस सेवाओं के बराबर रखा जाएगा।"
-        ]
+      "location": "pipalkoti",
+      "title": {
+        "hi": "पीपलकोटी जलविद्युत परियोजना सुरंग हादसे पर प्रशासन की समीक्षा"
       },
-      "image": "https://picsum.photos/seed/news11/1200/700",
-      "author": "Neha Kapoor",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-26T13:15:00+05:30",
-      "updatedAt": "2026-08-26T13:15:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 2530,
-      "tags": ["delhi", "transport", "metro"]
+      "summary": {
+        "en": "",
+        "hi": "पीपलकोटी जलविद्युत परियोजना सुरंग हादसे पर प्रशासन की समीक्षा मामले में पीपलकोटी क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है। प्रशासनिक अधिकारियों के अनुसार स्थान..."
+      },
+      "image": "https://images.unsplash.com/photo-1513828583688-c52646db42da",
+      "author": "विशेष संवाददाता",
+      "source": "स्थानीय संकलन",
+      "publishedAt": "2026-08-29T15:00:00+05:30",
+      "featured": true,
+      "trending": true,
+      "tags": [
+        "पीपलकोटी",
+        "सुरंग",
+        "प्रशासन"
+      ],
+      "content": {
+        "en": [],
+        "hi": [
+          "पीपलकोटी जलविद्युत परियोजना सुरंग हादसे पर प्रशासन की समीक्षा मामले में पीपलकोटी क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है।",
+          "प्रशासनिक अधिकारियों के अनुसार स्थानीय से जुड़े इस मुद्दे पर विभागीय टीमों को सक्रिय रखा गया है, जबकि प्रभावित इलाकों में प्राथमिक राहत और समन्वय कार्य जारी है।",
+          "स्थानीय लोगों ने बताया कि मौके पर व्यवस्थाओं में सुधार हुआ है, और स्थानीय संकलन के अनुसार अगले अपडेट में विस्तृत प्रगति रिपोर्ट साझा की जाएगी।"
+        ]
+      }
     },
     {
-      "id": "12",
-      "slug": "cyber-fraud-helpline-complaints-rise-karanprayag",
-      "category": "crime",
-      "location": "karanprayag",
-      "title": { "en": "Cyber Fraud Helpline Records Rise in Complaints", "hi": "साइबर धोखाधड़ी हेल्पलाइन पर शिकायतों में बढ़ोतरी" },
-      "summary": { "en": "Police say complaints to the local cyber fraud helpline have risen by nearly a third over the past quarter.", "hi": "पुलिस का कहना है कि पिछली तिमाही में स्थानीय साइबर धोखाधड़ी हेल्पलाइन पर शिकायतों में लगभग एक तिहाई की वृद्धि हुई है।" },
-      "content": {
-        "en": [
-          "Police say complaints to the local cyber fraud helpline have risen by nearly a third over the past quarter.",
-          "Officials attributed the rise to fake investment schemes and impersonation calls targeting senior citizens.",
-          "A dedicated awareness drive will be held in schools and residential societies next month."
-        ],
-        "hi": [
-          "पुलिस का कहना है कि पिछली तिमाही में स्थानीय साइबर धोखाधड़ी हेल्पलाइन पर शिकायतों में लगभग एक तिहाई की वृद्धि हुई है।",
-          "अधिकारियों ने इस बढ़ोतरी का कारण फर्जी निवेश योजनाओं और वरिष्ठ नागरिकों को निशाना बनाने वाली धोखाधड़ी कॉल को बताया।",
-          "अगले महीने स्कूलों और आवासीय सोसाइटियों में एक विशेष जागरूकता अभियान चलाया जाएगा।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news12/1200/700",
-      "author": "Deepak Rawat",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-26T09:30:00+05:30",
-      "updatedAt": "2026-08-26T09:30:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1980,
-      "tags": ["karanprayag", "crime", "cyberfraud"]
-    },
-    {
-      "id": "13",
-      "slug": "municipal-corporation-solid-waste-policy-dehradun",
-      "category": "politics",
-      "location": "dehradun",
-      "title": { "en": "Municipal Corporation Passes New Solid Waste Policy", "hi": "नगर निगम ने नई ठोस अपशिष्ट नीति पारित की" },
-      "summary": { "en": "The municipal corporation passed a new policy mandating source segregation of waste in all residential zones.", "hi": "नगर निगम ने सभी आवासीय क्षेत्रों में कचरे के स्रोत पर पृथक्करण अनिवार्य करने वाली नई नीति पारित की।" },
-      "content": {
-        "en": [
-          "The municipal corporation passed a new policy mandating source segregation of waste in all residential zones.",
-          "The policy will be rolled out in phases starting with the city's core wards.",
-          "Non-compliant households could face a graded fine structure once the rule takes full effect."
-        ],
-        "hi": [
-          "नगर निगम ने सभी आवासीय क्षेत्रों में कचरे के स्रोत पर पृथक्करण अनिवार्य करने वाली नई नीति पारित की।",
-          "यह नीति शहर के मुख्य वार्डों से शुरू होकर चरणबद्ध तरीके से लागू की जाएगी।",
-          "नियम पूरी तरह लागू होने के बाद पालन न करने वाले घरों पर चरणबद्ध जुर्माना लगाया जा सकता है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news13/1200/700",
-      "author": "Priya Nautiyal",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-25T17:50:00+05:30",
-      "updatedAt": "2026-08-25T17:50:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1420,
-      "tags": ["dehradun", "politics", "waste-management"]
-    },
-    {
-      "id": "14",
-      "slug": "wholesale-vegetable-prices-ease-delhi",
-      "category": "business",
-      "location": "delhi",
-      "title": { "en": "Wholesale Vegetable Prices Ease After Supply Boost", "hi": "आपूर्ति बढ़ने से सब्जियों के थोक भाव में नरमी" },
-      "summary": { "en": "Wholesale vegetable prices at the main mandi eased this week following improved supply from neighbouring districts.", "hi": "पड़ोसी जिलों से आपूर्ति बढ़ने के बाद इस सप्ताह मुख्य मंडी में सब्जियों के थोक भाव में नरमी आई।" },
-      "content": {
-        "en": [
-          "Wholesale vegetable prices at the main mandi eased this week following improved supply from neighbouring districts.",
-          "Traders said onion and tomato prices fell by up to 15 percent compared to last week.",
-          "Retail prices are expected to reflect the drop within the next few days."
-        ],
-        "hi": [
-          "पड़ोसी जिलों से आपूर्ति बढ़ने के बाद इस सप्ताह मुख्य मंडी में सब्जियों के थोक भाव में नरमी आई।",
-          "व्यापारियों ने बताया कि प्याज और टमाटर की कीमतों में पिछले सप्ताह की तुलना में 15 प्रतिशत तक की गिरावट आई है।",
-          "अगले कुछ दिनों में खुदरा कीमतों में भी इसका असर दिखने की उम्मीद है।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news14/1200/700",
-      "author": "Sanjay Gupta",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-25T12:40:00+05:30",
-      "updatedAt": "2026-08-25T12:40:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 2260,
-      "tags": ["delhi", "business", "mandi", "prices"]
-    },
-    {
-      "id": "15",
-      "slug": "government-school-digital-smart-classrooms-karanprayag",
-      "category": "education",
-      "location": "karanprayag",
-      "title": { "en": "Government School Gets Digital Smart Classrooms", "hi": "सरकारी स्कूल में डिजिटल स्मार्ट क्लासरूम शुरू" },
-      "summary": { "en": "A government school in the city has been equipped with smart classrooms under a state digital learning initiative.", "hi": "राज्य के डिजिटल लर्निंग अभियान के तहत शहर के एक सरकारी स्कूल में स्मार्ट क्लासरूम स्थापित किए गए हैं।" },
-      "content": {
-        "en": [
-          "A government school in the city has been equipped with smart classrooms under a state digital learning initiative.",
-          "The rollout includes interactive boards and tablets for classes 6 to 8.",
-          "The school principal said teacher training sessions will run through the first week of the new term."
-        ],
-        "hi": [
-          "राज्य के डिजिटल लर्निंग अभियान के तहत शहर के एक सरकारी स्कूल में स्मार्ट क्लासरूम स्थापित किए गए हैं।",
-          "इस पहल में कक्षा 6 से 8 के लिए इंटरैक्टिव बोर्ड और टैबलेट शामिल हैं।",
-          "स्कूल प्रधानाचार्य ने बताया कि नए सत्र के पहले सप्ताह में शिक्षक प्रशिक्षण सत्र आयोजित किए जाएंगे।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news15/1200/700",
-      "author": "Kabir Malhotra",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-25T08:20:00+05:30",
-      "updatedAt": "2026-08-25T08:20:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1340,
-      "tags": ["karanprayag", "education", "digital"]
-    },
-    {
-      "id": "16",
-      "slug": "hill-marathon-next-month-dehradun",
-      "category": "sports",
-      "location": "dehradun",
-      "title": { "en": "Hill Marathon to Be Held Next Month", "hi": "अगले महीने होगी हिल मैराथन" },
-      "summary": { "en": "Registrations have opened for the city's annual hill marathon, which returns with three new race categories this year.", "hi": "शहर की वार्षिक हिल मैराथन के लिए पंजीकरण शुरू हो गया है, जिसमें इस साल तीन नई दौड़ श्रेणियां शामिल की गई हैं।" },
-      "content": {
-        "en": [
-          "Registrations have opened for the city's annual hill marathon, which returns with three new race categories this year.",
-          "Organisers expect over 2,000 runners from across the state to take part.",
-          "The route will pass through several scenic viewpoints, with medical support stationed every three kilometres."
-        ],
-        "hi": [
-          "शहर की वार्षिक हिल मैराथन के लिए पंजीकरण शुरू हो गया है, जिसमें इस साल तीन नई दौड़ श्रेणियां शामिल की गई हैं।",
-          "आयोजकों को उम्मीद है कि राज्यभर से 2,000 से अधिक धावक इसमें हिस्सा लेंगे।",
-          "यह मार्ग कई खूबसूरत दृश्य स्थलों से होकर गुजरेगा, और हर तीन किलोमीटर पर चिकित्सा सहायता तैनात रहेगी।"
-        ]
-      },
-      "image": "https://picsum.photos/seed/news16/1200/700",
-      "author": "Meera Bisht",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-24T19:10:00+05:30",
-      "updatedAt": "2026-08-24T19:10:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1760,
-      "tags": ["dehradun", "sports", "marathon"]
-    },
-    {
-      "id": "17",
-      "slug": "heatwave-conditions-ease-weekend-karanprayag",
+      "id": "cv-004",
+      "slug": "monsoon-alert-chamoli",
       "category": "weather",
-      "location": "karanprayag",
-      "title": { "en": "Heatwave Conditions Expected to Ease by Weekend", "hi": "सप्ताहांत तक गर्मी से मिलेगी राहत" },
-      "summary": { "en": "The weather office expects daytime temperatures to drop by 3-4 degrees starting this weekend after a week-long heatwave.", "hi": "मौसम विभाग के अनुसार एक सप्ताह की गर्मी के बाद इस सप्ताहांत से दिन के तापमान में 3-4 डिग्री की गिरावट की उम्मीद है।" },
-      "content": {
-        "en": [
-          "The weather office expects daytime temperatures to drop by 3-4 degrees starting this weekend after a week-long heatwave.",
-          "Health officials had earlier advised residents to avoid outdoor activity during afternoon hours.",
-          "Light rain is also forecast in parts of the district over the next few days."
-        ],
-        "hi": [
-          "मौसम विभाग के अनुसार एक सप्ताह की गर्मी के बाद इस सप्ताहांत से दिन के तापमान में 3-4 डिग्री की गिरावट की उम्मीद है।",
-          "स्वास्थ्य अधिकारियों ने पहले निवासियों को दोपहर के समय बाहर की गतिविधियों से बचने की सलाह दी थी।",
-          "अगले कुछ दिनों में जिले के कुछ हिस्सों में हल्की बारिश का भी अनुमान है।"
-        ]
+      "location": "chamoli",
+      "title": {
+        "hi": "चमोली जिले में भारी बारिश का अलर्ट जारी"
       },
-      "image": "https://picsum.photos/seed/news17/1200/700",
-      "author": "Ritu Sharma",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-24T14:00:00+05:30",
-      "updatedAt": "2026-08-24T14:00:00+05:30",
+      "summary": {
+        "en": "",
+        "hi": "चमोली जिले में भारी बारिश का अलर्ट जारी मामले में चमोली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है। प्रशासनिक अधिकारियों के अनुसार मौसम से जुड़े इस मुद्दे पर विभ..."
+      },
+      "image": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+      "author": "मौसम डेस्क",
+      "source": "जिला प्रशासन",
+      "publishedAt": "2026-08-29T08:00:00+05:30",
       "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1990,
-      "tags": ["karanprayag", "weather", "heatwave"]
+      "trending": true,
+      "tags": [
+        "मौसम",
+        "अलर्ट",
+        "बारिश"
+      ],
+      "content": {
+        "en": [],
+        "hi": [
+          "चमोली जिले में भारी बारिश का अलर्ट जारी मामले में चमोली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है।",
+          "प्रशासनिक अधिकारियों के अनुसार मौसम से जुड़े इस मुद्दे पर विभागीय टीमों को सक्रिय रखा गया है, जबकि प्रभावित इलाकों में प्राथमिक राहत और समन्वय कार्य जारी है।",
+          "स्थानीय लोगों ने बताया कि मौके पर व्यवस्थाओं में सुधार हुआ है, और जिला प्रशासन के अनुसार अगले अपडेट में विस्तृत प्रगति रिपोर्ट साझा की जाएगी।"
+        ]
+      }
     },
     {
-      "id": "18",
-      "slug": "water-pipeline-upgrade-outer-delhi",
-      "category": "infrastructure",
-      "location": "delhi",
-      "title": { "en": "Water Pipeline Upgrade to Begin in Outer Areas", "hi": "बाहरी क्षेत्रों में जल पाइपलाइन उन्नयन कार्य शुरू होगा" },
-      "summary": { "en": "The water board will begin replacing ageing pipelines in outer colonies next week, promising better pressure and fewer leaks.", "hi": "जल बोर्ड अगले सप्ताह से बाहरी कॉलोनियों में पुरानी पाइपलाइनों को बदलने का काम शुरू करेगा, जिससे बेहतर दबाव और कम रिसाव की उम्मीद है।" },
-      "content": {
-        "en": [
-          "The water board will begin replacing ageing pipelines in outer colonies next week, promising better pressure and fewer leaks.",
-          "Residents have been asked to store water for two days during the switchover in each zone.",
-          "The upgrade is part of a larger citywide plan to cut non-revenue water losses."
-        ],
-        "hi": [
-          "जल बोर्ड अगले सप्ताह से बाहरी कॉलोनियों में पुरानी पाइपलाइनों को बदलने का काम शुरू करेगा, जिससे बेहतर दबाव और कम रिसाव की उम्मीद है।",
-          "निवासियों से प्रत्येक क्षेत्र में बदलाव के दौरान दो दिनों के लिए पानी जमा रखने को कहा गया है।",
-          "यह उन्नयन शहरभर में पानी की बर्बादी कम करने की एक बड़ी योजना का हिस्सा है।"
-        ]
+      "id": "cv-005",
+      "slug": "village-water-supply-affected",
+      "category": "local",
+      "location": "simli",
+      "title": {
+        "hi": "कई गांवों में पेयजल आपूर्ति प्रभावित"
       },
-      "image": "https://picsum.photos/seed/news18/1200/700",
-      "author": "Neha Kapoor",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-23T16:30:00+05:30",
-      "updatedAt": "2026-08-23T16:30:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 1120,
-      "tags": ["delhi", "infrastructure", "water"]
-    },
-    {
-      "id": "19",
-      "slug": "blood-donation-drive-record-units-karanprayag",
-      "category": "health",
-      "location": "karanprayag",
-      "title": { "en": "Blood Donation Drive Collects Record Units", "hi": "रक्तदान शिविर में रिकॉर्ड यूनिट रक्त एकत्र" },
-      "summary": { "en": "A city-wide blood donation drive collected a record 480 units over the weekend, organisers said.", "hi": "आयोजकों के अनुसार सप्ताहांत में शहरभर में आयोजित रक्तदान शिविर में रिकॉर्ड 480 यूनिट रक्त एकत्र किया गया।" },
-      "content": {
-        "en": [
-          "A city-wide blood donation drive collected a record 480 units over the weekend, organisers said.",
-          "The drive was held across six centres in partnership with the district hospital.",
-          "Organisers thanked college volunteers for helping manage the largest turnout in the drive's five-year history."
-        ],
-        "hi": [
-          "आयोजकों के अनुसार सप्ताहांत में शहरभर में आयोजित रक्तदान शिविर में रिकॉर्ड 480 यूनिट रक्त एकत्र किया गया।",
-          "यह शिविर जिला अस्पताल के सहयोग से छह केंद्रों पर आयोजित किया गया।",
-          "आयोजकों ने अभियान के पांच साल के इतिहास में सबसे बड़ी भागीदारी को संभालने में मदद के लिए कॉलेज स्वयंसेवकों को धन्यवाद दिया।"
-        ]
+      "summary": {
+        "en": "",
+        "hi": "कई गांवों में पेयजल आपूर्ति प्रभावित मामले में सिमली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है। प्रशासनिक अधिकारियों के अनुसार स्थानीय से जुड़े इस मुद्दे पर विभ..."
       },
-      "image": "https://picsum.photos/seed/news19/1200/700",
-      "author": "Anjali Mehra",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-22T11:00:00+05:30",
-      "updatedAt": "2026-08-22T11:00:00+05:30",
+      "image": "https://images.unsplash.com/photo-1538300342682-cf57afb97285",
+      "author": "ग्रामीण संवाददाता",
+      "source": "स्थानीय रिपोर्ट",
+      "publishedAt": "2026-08-28T16:20:00+05:30",
       "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 960,
-      "tags": ["karanprayag", "health", "blooddonation"]
-    },
-    {
-      "id": "20",
-      "slug": "book-fair-opens-regional-authors-dehradun",
-      "category": "events",
-      "location": "dehradun",
-      "title": { "en": "Book Fair Opens With Focus on Regional Authors", "hi": "क्षेत्रीय लेखकों पर केंद्रित पुस्तक मेला शुरू" },
-      "summary": { "en": "The annual book fair opened this week with a dedicated pavilion for regional-language authors and publishers.", "hi": "वार्षिक पुस्तक मेला इस सप्ताह क्षेत्रीय भाषा के लेखकों और प्रकाशकों के लिए एक विशेष पवेलियन के साथ शुरू हुआ।" },
+      "trending": true,
+      "tags": [
+        "पेयजल",
+        "गांव",
+        "सिमली"
+      ],
       "content": {
-        "en": [
-          "The annual book fair opened this week with a dedicated pavilion for regional-language authors and publishers.",
-          "Organisers said footfall on the opening day was higher than the previous three editions combined.",
-          "The fair will remain open through the coming weekend, with daily author sessions in the evening."
-        ],
+        "en": [],
         "hi": [
-          "वार्षिक पुस्तक मेला इस सप्ताह क्षेत्रीय भाषा के लेखकों और प्रकाशकों के लिए एक विशेष पवेलियन के साथ शुरू हुआ।",
-          "आयोजकों ने बताया कि पहले दिन आई भीड़ पिछले तीन आयोजनों की कुल भीड़ से भी अधिक थी।",
-          "यह मेला आगामी सप्ताहांत तक खुला रहेगा, हर शाम लेखक सत्र आयोजित किए जाएंगे।"
+          "कई गांवों में पेयजल आपूर्ति प्रभावित मामले में सिमली क्षेत्र से ग्राउंड इनपुट लगातार सामने आ रहे हैं और स्थानीय प्रशासन ने स्थिति पर निगरानी बढ़ा दी है।",
+          "प्रशासनिक अधिकारियों के अनुसार स्थानीय से जुड़े इस मुद्दे पर विभागीय टीमों को सक्रिय रखा गया है, जबकि प्रभावित इलाकों में प्राथमिक राहत और समन्वय कार्य जारी है।",
+          "स्थानीय लोगों ने बताया कि मौके पर व्यवस्थाओं में सुधार हुआ है, और स्थानीय रिपोर्ट के अनुसार अगले अपडेट में विस्तृत प्रगति रिपोर्ट साझा की जाएगी।"
         ]
-      },
-      "image": "https://picsum.photos/seed/news20/1200/700",
-      "author": "Priya Nautiyal",
-      "source": "Local News Desk",
-      "sourceUrl": "",
-      "publishedAt": "2026-08-21T09:15:00+05:30",
-      "updatedAt": "2026-08-21T09:15:00+05:30",
-      "featured": false,
-      "breaking": false,
-      "trending": false,
-      "views": 880,
-      "tags": ["dehradun", "events", "books"]
+      }
     }
   ]
 }

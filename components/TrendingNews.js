@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pick, localizedHref, t } from "@/lib/i18n";
+import { pick, localizedHref } from "@/lib/i18n";
 
 export default function TrendingNews({ articles, lang }) {
   const fontHi = lang === "hi" ? "font-display-hi" : "font-display";
@@ -11,7 +11,7 @@ export default function TrendingNews({ articles, lang }) {
         id="trending-heading"
         className={`${fontHi} text-lg font-bold uppercase tracking-wide text-ink border-b-2 border-ink pb-2 mb-4`}
       >
-        {t("trending", lang)}
+        ट्रेंडिंग
       </h2>
       <ol className="space-y-4">
         {articles.map((article, i) => (

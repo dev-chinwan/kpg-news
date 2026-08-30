@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Link2, Check } from "lucide-react";
-import { t } from "@/lib/i18n";
 
 function WhatsAppIcon(props) {
   return (
@@ -65,7 +64,7 @@ export default function ShareButtons({ title, url, lang }) {
   return (
     <div className="flex items-center gap-2 flex-wrap">
       <span className="text-xs uppercase tracking-wide text-slate font-semibold">
-        {t("share", lang)}
+        शेयर करें
       </span>
       {links.map((l) => (
         <a
@@ -73,7 +72,7 @@ export default function ShareButtons({ title, url, lang }) {
           href={l.href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${t("share", lang)} ${l.label}`}
+          aria-label={`शेयर करें ${l.label}`}
           className="w-8 h-8 flex items-center justify-center rounded-full border border-rule text-ink hover:border-sindoor hover:text-sindoor transition-colors"
         >
           {l.icon}
@@ -83,13 +82,13 @@ export default function ShareButtons({ title, url, lang }) {
         type="button"
         onClick={handleCopy}
         className="w-8 h-8 flex items-center justify-center rounded-full border border-rule text-ink hover:border-sindoor hover:text-sindoor transition-colors"
-        aria-label={t("copyLink", lang)}
+        aria-label="लिंक कॉपी करें"
       >
         {copied ? <Check size={15} /> : <Link2 size={15} />}
       </button>
       {copied && (
         <span className="text-xs text-sindoor" role="status">
-          {t("linkCopied", lang)}
+          लिंक कॉपी हो गया
         </span>
       )}
     </div>

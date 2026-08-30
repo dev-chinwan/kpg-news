@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ImageWithFallback from "./ImageWithFallback";
-import { pick, localizedHref, timeAgo, t } from "@/lib/i18n";
+import { pick, localizedHref, timeAgo } from "@/lib/i18n";
 
 export default function HeroNews({ article, lang, locationName, categoryName }) {
   if (!article) return null;
@@ -12,7 +12,7 @@ export default function HeroNews({ article, lang, locationName, categoryName }) 
       <p
         className={`text-xs font-bold uppercase tracking-[0.14em] text-sindoor mb-3 ${fontBodyHi}`}
       >
-        {t("featuredLabel", lang)}
+        प्रमुख खबर
       </p>
       <Link
         href={localizedHref(`/news/${article.slug}`, lang)}

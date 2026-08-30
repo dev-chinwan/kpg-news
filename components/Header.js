@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import CategoryNav from "./CategoryNav";
-import LanguageSwitcher from "./LanguageSwitcher";
 import SearchBox from "./SearchBox";
 import { pick, localizedHref } from "@/lib/i18n";
 
@@ -17,8 +16,8 @@ export default function Header({
   activeCategory,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const fontHi = lang === "hi" ? "font-display-hi" : "font-display";
-  const fontBodyHi = lang === "hi" ? "font-body-hi" : "font-body";
+  const fontHi = "font-display-hi";
+  const fontBodyHi = "font-body-hi";
 
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur border-b border-rule">
@@ -26,7 +25,6 @@ export default function Header({
       <div className="hidden md:block dateline">
         <div className="max-w-content mx-auto px-4 flex items-center justify-between py-1.5 text-[11px] tracking-[0.14em] uppercase text-slate font-mono">
           <span>{dateLabel}</span>
-          <span>{lang === "hi" ? "डेमो न्यूज़ पोर्टल" : "Demo News Portal"}</span>
         </div>
       </div>
 
@@ -48,11 +46,10 @@ export default function Header({
             <div className="hidden md:block w-64">
               <SearchBox lang={lang} compact />
             </div>
-            <LanguageSwitcher lang={lang} />
             <button
               type="button"
               className="md:hidden p-2 -mr-2 text-ink"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-label={menuOpen ? "मेनू बंद करें" : "मेनू खोलें"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
             >

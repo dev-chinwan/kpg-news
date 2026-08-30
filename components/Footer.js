@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import { t, localizedHref } from "@/lib/i18n";
+import { localizedHref } from "@/lib/i18n";
 
 function XIcon(props) {
   return (
@@ -15,12 +15,12 @@ export default function Footer({ lang, siteName }) {
   const fontBodyHi = lang === "hi" ? "font-body-hi" : "font-body";
 
   const links = [
-    { key: "about", href: "/about" },
-    { key: "contact", href: "/contact" },
-    { key: "editorialPolicy", href: "/editorial-policy" },
-    { key: "privacyPolicy", href: "/privacy-policy" },
-    { key: "terms", href: "/terms" },
-    { key: "advertise", href: "/advertise" },
+    { label: "हमारे बारे में", href: "/about" },
+    { label: "संपर्क करें", href: "/contact" },
+    { label: "संपादकीय नीति", href: "/editorial-policy" },
+    { label: "गोपनीयता नीति", href: "/privacy-policy" },
+    { label: "उपयोग की शर्तें", href: "/terms" },
+    { label: "विज्ञापन दें", href: "/advertise" },
   ];
 
   const socials = [
@@ -37,7 +37,7 @@ export default function Footer({ lang, siteName }) {
           <div>
             <div className={`${fontHi} text-xl font-bold text-ink`}>{siteName}</div>
             <p className={`text-sm text-slate mt-2 max-w-xs ${fontBodyHi}`}>
-              {t("tagline", lang)}
+              आपका शहर। आपकी खबर।
             </p>
             <div className="flex items-center gap-3 mt-4">
               {socials.map((s) => (
@@ -56,18 +56,18 @@ export default function Footer({ lang, siteName }) {
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-2">
             {links.map((l) => (
               <Link
-                key={l.key}
+                key={l.label}
                 href={localizedHref(l.href, lang)}
                 className={`text-sm text-slate hover:text-sindoor ${fontBodyHi}`}
               >
-                {t(l.key, lang)}
+                {l.label}
               </Link>
             ))}
           </nav>
         </div>
 
         <div className={`mt-8 pt-6 border-t border-rule text-xs text-slate ${fontBodyHi}`}>
-          © 2026 {siteName}. {t("allRightsReserved", lang)}
+          © 2026 {siteName}. सर्वाधिकार सुरक्षित।
         </div>
       </div>
     </footer>

@@ -13,7 +13,7 @@ import {
   getLocations,
   getSite,
 } from "@/lib/news";
-import { normalizeLang, pick, t } from "@/lib/i18n";
+import { normalizeLang, pick } from "@/lib/i18n";
 
 export async function generateMetadata({ searchParams }) {
   const sp = await searchParams;
@@ -21,11 +21,8 @@ export async function generateMetadata({ searchParams }) {
   const site = await getSite();
   return {
     title: `${pick(site.name, lang)} — ${pick(site.tagline, lang)}`,
-    description:
-      lang === "hi"
-        ? "स्थानीय, राजनीति, व्यापार, अपराध, शिक्षा, खेल और मौसम से जुड़ी ताज़ा खबरें, हिंदी और अंग्रेज़ी में।"
-        : "Today's local, politics, business, crime, education, sports and weather news — in English and Hindi.",
-    alternates: { canonical: lang === "hi" ? "/?lang=hi" : "/" },
+    description: "स्थानीय, राजनीति, व्यापार, अपराध, शिक्षा, खेल और मौसम से जुड़ी ताज़ा खबरें।",
+    alternates: { canonical: "/" },
   };
 }
 
@@ -53,8 +50,6 @@ export default async function HomePage({ searchParams }) {
       <BreakingNews articles={breaking} lang={lang} />
 
       <div className="max-w-content mx-auto px-4">
-        <p className="sr-only">{t("demoNotice", lang)}</p>
-
         <HeroNews
           article={hero}
           lang={lang}

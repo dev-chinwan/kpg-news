@@ -27,12 +27,12 @@ export async function generateMetadata({ params, searchParams }) {
   const article = await getNewsBySlug(slug);
 
   if (!article) {
-    return { title: "Article not found" };
+    return { title: "खबर नहीं मिली" };
   }
 
   const title = pick(article.title, lang);
   const description = pick(article.summary, lang);
-  const url = `${SITE_URL}/news/${article.slug}${lang === "hi" ? "?lang=hi" : ""}`;
+  const url = `${SITE_URL}/news/${article.slug}`;
 
   return {
     title,
@@ -77,7 +77,7 @@ export default async function ArticlePage({ params, searchParams }) {
       getTrendingNews(5),
     ]);
 
-  const articleUrl = `${SITE_URL}/news/${article.slug}${lang === "hi" ? "?lang=hi" : ""}`;
+  const articleUrl = `${SITE_URL}/news/${article.slug}`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -88,7 +88,7 @@ export default async function ArticlePage({ params, searchParams }) {
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     author: [{ "@type": "Person", name: article.author }],
-    publisher: { "@type": "Organization", name: "Local News" },
+    publisher: { "@type": "Organization", name: "लोकल न्यूज़" },
     mainEntityOfPage: articleUrl,
   };
 

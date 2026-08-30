@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pick, localizedHref, t } from "@/lib/i18n";
+import { pick, localizedHref } from "@/lib/i18n";
 
 export default function BreakingNews({ articles, lang }) {
   if (!articles || articles.length === 0) return null;
@@ -19,7 +19,7 @@ export default function BreakingNews({ articles, lang }) {
             <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-60 animate-ping" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
           </span>
-          {t("breakingLabel", lang)}
+            ब्रेकिंग
         </span>
         <div className="relative flex-1 overflow-hidden py-2">
           <div className="ticker-track flex gap-10 w-max whitespace-nowrap">

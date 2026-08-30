@@ -7,7 +7,7 @@ import {
   getLocations,
   getNewsByCategory,
 } from "@/lib/news";
-import { normalizeLang, pick, t } from "@/lib/i18n";
+import { normalizeLang, pick } from "@/lib/i18n";
 
 export async function generateStaticParams() {
   const categories = await getCategories();
@@ -20,14 +20,11 @@ export async function generateMetadata({ params, searchParams }) {
   const lang = normalizeLang(sp?.lang);
   const category = await getCategoryById(categoryId);
 
-  if (!category) return { title: t("categoryNotFound", lang) };
+  if (!category) return { title: "श्रेणी नहीं मिली" };
 
   return {
     title: pick(category.name, lang),
-    description:
-      lang === "hi"
-        ? `${pick(category.name, lang)} श्रेणी की ताज़ा खबरें`
-        : `Latest ${pick(category.name, "en")} news`,
+    description: `${pick(category.name, lang)} श्रेणी की ताज़ा खबरें`,
   };
 }
 
@@ -68,9 +65,9 @@ export default async function CategoryPage({ params, searchParams }) {
         ) : (
           <div className="py-16 text-center">
             <p className={`text-lg font-semibold text-ink mb-2 ${fontBodyHi}`}>
-              {t("noResults", lang)}
+              कोई खबर नहीं मिली
             </p>
-            <p className={`text-sm text-slate ${fontBodyHi}`}>{t("noResultsHint", lang)}</p>
+            <p className={`text-sm text-slate ${fontBodyHi}`}>कोई और श्रेणी देखें या होमपेज पर जाएं।</p>
           </div>
         )}
       </div>
