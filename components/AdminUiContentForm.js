@@ -11,6 +11,7 @@ const TEMPLATE = {
   },
   categories: [],
   locations: [],
+  articles: [],
 };
 
 export default function AdminUiContentForm() {
@@ -28,7 +29,15 @@ export default function AdminUiContentForm() {
         throw new Error(data?.error || "UI content load नहीं हो सका।");
       }
       setJsonText(JSON.stringify(data.content, null, 2));
-      setStatus({ error: false, message: "UI content सफलतापूर्वक लोड हुआ।" });
+      if (data.source === "cloudinary") {
+        setStatus({ error: false, message: "UI content Cloudinary से सफलतापूर्वक लोड हुआ।" });
+      } else {
+        const reason = data.reason ? ` (${data.reason})` : "";
+        setStatus({
+          error: true,
+          message: `Cloudinary data नहीं मिला, local backup लोड हुआ${reason}`,
+        });
+      }
     } catch (error) {
       setStatus({ error: true, message: error?.message || "लोड करते समय त्रुटि।" });
     } finally {
@@ -51,7 +60,12 @@ export default function AdminUiContentForm() {
         throw new Error(data?.error || "UI content save नहीं हो सका।");
       }
       setJsonText(JSON.stringify(data.content, null, 2));
-      setStatus({ error: false, message: "UI content Cloudinary में सेव हो गया।" });
+      const link = data?.content?._secureUrl ? ` URL: ${data.content._secureUrl}` : "";
+      const articlesSaved = Number(data?.savedArticlesCount || 0);
+      setStatus({
+        error: false,
+        message: `UI content और ${articlesSaved} articles Cloudinary में सेव हो गए।${link}`,
+      });
     } catch (error) {
       if (error instanceof SyntaxError) {
         setStatus({ error: true, message: "JSON format गलत है। पहले JSON सही करें।" });
@@ -69,7 +83,7 @@ export default function AdminUiContentForm() {
         UI कंटेंट JSON (Cloudinary)
       </h2>
       <p className="text-sm text-slate font-body-hi mb-4">
-        यहां से site, categories और locations एक ही JSON में मैनेज करें।
+        यहां से site, categories, locations और articles एक ही JSON में मैनेज करें।
         news.json local backup/fallback की तरह रहेगा।
       </p>
 
