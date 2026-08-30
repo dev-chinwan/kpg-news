@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#F2F0EA"/>
+  <line x1="0" y1="0" x2="800" y2="500" stroke="#DEDAD0" stroke-width="2"/>
+  <line x1="800" y1="0" x2="0" y2="500" stroke="#DEDAD0" stroke-width="2"/>
+  <rect x="330" y="215" width="140" height="70" fill="none" stroke="#A9222E" stroke-width="3"/>
+  <text x="400" y="330" font-family="Georgia, serif" font-size="20" fill="#5B564E" text-anchor="middle">Image unavailable</text>
+</svg>
