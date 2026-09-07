@@ -28,11 +28,13 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ENABLE_LEGACY_ARTICLES_MIGRATION=false
 ```
 
 नोट:
 - `CLOUDINARY_API_SECRET` केवल server-side में उपयोग होता है
 - इसे कभी public client code में expose न करें
+- `ENABLE_LEGACY_ARTICLES_MIGRATION=true` करने पर ही legacy migration section और API enable होंगे
 
 ---
 

@@ -19,7 +19,7 @@ export default function NewsCard({
       }`}
     >
       <Link
-        href={localizedHref(`/news/${article.slug}`, lang)}
+        href={localizedHref(`/news/${article.id}`, lang)}
         className={horizontal ? "shrink-0 w-32 sm:w-40" : "block"}
       >
         <div
@@ -44,7 +44,7 @@ export default function NewsCard({
           {categoryName && locationName && <span aria-hidden="true">•</span>}
           {locationName && <span>{locationName}</span>}
         </div>
-        <Link href={localizedHref(`/news/${article.slug}`, lang)}>
+        <Link href={localizedHref(`/news/${article.id}`, lang)}>
           <h3
             className={`${fontHi} font-semibold text-ink leading-snug group-hover:text-sindoor-dark transition-colors ${
               horizontal ? "text-base line-clamp-2" : "text-lg line-clamp-2"

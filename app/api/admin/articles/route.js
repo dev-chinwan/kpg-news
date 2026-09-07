@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
-import { getStoredArticles, saveArticleToCloudinary } from "@/lib/cloudinaryNews";
+import {
+  getStoredArticles,
+  saveArticleToCloudinary,
+  softDeleteArticleById,
+} from "@/lib/cloudinaryNews";
+import { requireAdminAuth } from "@/lib/adminAuth";
+import { enforceRateLimit } from "@/lib/rateLimit";
+import { validateUploadFile } from "@/lib/uploadValidation";
 
 function buildSummary(titleHi, summaryHi, contentHi) {
   if (summaryHi && summaryHi.trim()) return summaryHi.trim();
@@ -23,27 +30,46 @@ function parseTags(raw) {
     .filter(Boolean);
 }
 
-export async function GET() {
+function generateArticleId() {
+  const now = Date.now().toString(36);
+  const rand = Math.random().toString(36).slice(2, 7);
+  return `n-${now}${rand}`;
+}
+
+export async function GET(request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   const articles = await getStoredArticles();
   return NextResponse.json({ articles });
 }
 
 export async function POST(request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
+  const limited = enforceRateLimit(request, {
+    routeKey: "admin-articles-post",
+    limit: 15,
+    windowMs: 60 * 1000,
+  });
+  if (limited) return limited;
+
   try {
     const formData = await request.formData();
 
-    const slug = String(formData.get("slug") || "")
-      .trim()
-      .toLowerCase();
+    const existingId = String(formData.get("id") || "").trim();
+    const id = existingId || generateArticleId();
     const titleHi = String(formData.get("titleHi") || "").trim();
     const summaryHi = String(formData.get("summaryHi") || "").trim();
     const contentHiRaw = String(formData.get("contentHi") || "").trim();
+    const slug = id;
 
-    if (!slug || !titleHi || !contentHiRaw) {
+    if (!titleHi || !summaryHi || !contentHiRaw) {
       return NextResponse.json(
         {
           ok: false,
-          error: "slug, titleHi और contentHi अनिवार्य हैं।",
+          error: "titleHi, summaryHi और contentHi अनिवार्य हैं।",
         },
         { status: 400 }
       );
@@ -64,11 +90,21 @@ export async function POST(request) {
     const existingImage = String(formData.get("imageUrl") || "").trim();
     const imageFile = formData.get("image");
 
+    if (imageFile instanceof File && imageFile.size > 0) {
+      const validation = validateUploadFile(imageFile, "image");
+      if (!validation.ok) {
+        return NextResponse.json(
+          { ok: false, error: validation.error },
+          { status: 400 }
+        );
+      }
+    }
+
     const article = {
-      id: String(formData.get("id") || Date.now()),
+      id,
       slug,
       category: String(formData.get("category") || "local").trim(),
-      location: String(formData.get("location") || "dehradun").trim(),
+      location: String(formData.get("location") || "karanprayag").trim(),
       title: { hi: titleHi },
       summary: { hi: buildSummary(titleHi, summaryHi, contentHi) },
       content: { hi: contentHi },
@@ -97,6 +133,41 @@ export async function POST(request) {
       {
         ok: false,
         error: error?.message || "पोस्ट सेव करते समय त्रुटि हुई।",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
+  const limited = enforceRateLimit(request, {
+    routeKey: "admin-articles-delete",
+    limit: 15,
+    windowMs: 60 * 1000,
+  });
+  if (limited) return limited;
+
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = String(searchParams.get("id") || "").trim();
+
+    if (!id) {
+      return NextResponse.json(
+        { ok: false, error: "डिलीट के लिए article id अनिवार्य है।" },
+        { status: 400 }
+      );
+    }
+
+    const deleted = await softDeleteArticleById(id);
+    return NextResponse.json({ ok: true, article: deleted });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: error?.message || "खबर डिलीट करते समय त्रुटि हुई।",
       },
       { status: 500 }
     );

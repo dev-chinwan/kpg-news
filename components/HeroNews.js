@@ -1,21 +1,23 @@
 import Link from "next/link";
+import { useId } from "react";
 import ImageWithFallback from "./ImageWithFallback";
 import { pick, localizedHref, timeAgo } from "@/lib/i18n";
 
 export default function HeroNews({ article, lang, locationName, categoryName }) {
   if (!article) return null;
+  const headingId = useId();
   const fontHi = lang === "hi" ? "font-display-hi" : "font-display";
   const fontBodyHi = lang === "hi" ? "font-body-hi" : "font-body";
 
   return (
-    <section aria-labelledby="hero-heading" className="py-6 md:py-8">
+    <section aria-labelledby={headingId} className="py-6 md:py-8">
       <p
         className={`text-xs font-bold uppercase tracking-[0.14em] text-sindoor mb-3 ${fontBodyHi}`}
       >
         प्रमुख खबर
       </p>
       <Link
-        href={localizedHref(`/news/${article.slug}`, lang)}
+        href={localizedHref(`/news/${article.id}`, lang)}
         className="grid md:grid-cols-2 gap-5 md:gap-8 group"
       >
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-paper-dim">
@@ -35,7 +37,7 @@ export default function HeroNews({ article, lang, locationName, categoryName }) 
             <span>{locationName}</span>
           </div>
           <h1
-            id="hero-heading"
+            id={headingId}
             className={`${fontHi} text-2xl md:text-4xl font-bold leading-tight text-ink group-hover:text-sindoor-dark transition-colors`}
           >
             {pick(article.title, lang)}

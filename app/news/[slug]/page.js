@@ -17,7 +17,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export async function generateStaticParams() {
   const all = await getAllNews();
-  return all.map((a) => ({ slug: a.slug }));
+  return all.map((a) => ({ slug: a.id }));
 }
 
 export async function generateMetadata({ params, searchParams }) {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params, searchParams }) {
 
   const title = pick(article.title, lang);
   const description = pick(article.summary, lang);
-  const url = `${SITE_URL}/news/${article.slug}`;
+  const url = `${SITE_URL}/news/${article.id}`;
 
   return {
     title,
@@ -77,7 +77,7 @@ export default async function ArticlePage({ params, searchParams }) {
       getTrendingNews(5),
     ]);
 
-  const articleUrl = `${SITE_URL}/news/${article.slug}`;
+  const articleUrl = `${SITE_URL}/news/${article.id}`;
 
   const structuredData = {
     "@context": "https://schema.org",

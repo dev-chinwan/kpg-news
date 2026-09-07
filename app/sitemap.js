@@ -25,7 +25,7 @@ export default async function sitemap() {
   }));
 
   const articleRoutes = articles.map((a) => ({
-    url: `${SITE_URL}/news/${a.slug}`,
+    url: `${SITE_URL}/news/${a.id}`,
     lastModified: a.updatedAt || a.publishedAt,
   }));
 

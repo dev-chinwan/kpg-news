@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 import { getUiContent, saveUiContent } from "@/lib/uiContent";
-import { getStoredArticles, syncArticlesToCloudinary } from "@/lib/cloudinaryNews";
+import { getStoredArticles } from "@/lib/cloudinaryNews";
 import newsData from "@/data/news.json";
+import { requireAdminAuth } from "@/lib/adminAuth";
+import { enforceRateLimit } from "@/lib/rateLimit";
 
-export async function GET() {
+export async function GET(request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   const content = await getUiContent();
   const cloudinaryArticles = await getStoredArticles();
   const articles = cloudinaryArticles.length > 0 ? cloudinaryArticles : (newsData.articles || []);
@@ -12,7 +17,6 @@ export async function GET() {
     site: content.site,
     categories: content.categories,
     locations: content.locations,
-    articles,
     updatedAt: content.updatedAt || null,
   };
 
@@ -24,15 +28,27 @@ export async function GET() {
   return NextResponse.json({
     ok: true,
     content: payload,
+    articles,
     source,
     reason: content?._reason || null,
   });
 }
 
 export async function POST(request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
+  const limited = enforceRateLimit(request, {
+    routeKey: "admin-ui-content-post",
+    limit: 10,
+    windowMs: 60 * 1000,
+  });
+  if (limited) return limited;
+
   try {
     const body = await request.json();
     const uiPayload = {
+      schemaVersion: Number(body?.schemaVersion || 1),
       site: body?.site,
       categories: body?.categories,
       locations: body?.locations,
@@ -40,13 +56,7 @@ export async function POST(request) {
     };
 
     const savedUi = await saveUiContent(uiPayload);
-    let savedArticles;
-
-    if (Array.isArray(body?.articles)) {
-      savedArticles = await syncArticlesToCloudinary(body.articles);
-    } else {
-      savedArticles = await getStoredArticles();
-    }
+    const savedArticles = await getStoredArticles();
 
     return NextResponse.json({
       ok: true,
@@ -54,11 +64,10 @@ export async function POST(request) {
         site: savedUi.site,
         categories: savedUi.categories,
         locations: savedUi.locations,
-        articles: savedArticles,
         updatedAt: savedUi.updatedAt,
         _secureUrl: savedUi._secureUrl || null,
       },
-      savedArticlesCount: savedArticles.length,
+      articlesCount: savedArticles.length,
     });
   } catch (error) {
     return NextResponse.json(

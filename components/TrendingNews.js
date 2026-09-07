@@ -23,7 +23,7 @@ export default function TrendingNews({ articles, lang }) {
               {String(i + 1).padStart(2, "0")}
             </span>
             <Link
-              href={localizedHref(`/news/${article.slug}`, lang)}
+              href={localizedHref(`/news/${article.id}`, lang)}
               className={`text-sm font-semibold text-ink hover:text-sindoor-dark leading-snug ${fontBodyHi}`}
             >
               {pick(article.title, lang)}
