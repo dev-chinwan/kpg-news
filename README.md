@@ -1,27 +1,75 @@
-# लोकल न्यूज़ पोर्टल (Next.js + Cloudinary)
+# 📰 KPG News Portal (Next.js + Cloudinary)
 
-यह प्रोजेक्ट अब हिंदी-ओनली न्यूज़ पोर्टल के रूप में अपडेट किया गया है।
+A modern, Hindi-language news portal built with Next.js, React, and Cloudinary for seamless content management and media hosting.
 
-## क्या बदला गया है
-
-1. एडमिन से पोस्ट सेव करने पर:
-- आर्टिकल JSON Cloudinary Raw resource में सेव होता है
-- इमेज Cloudinary Image folder में अपलोड होती है
-
-2. फ्रंटएंड डेटा सोर्स:
-- पहले Cloudinary से आर्टिकल पढ़े जाते हैं
-- अगर Cloudinary env configure नहीं है, तो `data/news.json` fallback चलता है
-- site/categories/locations को भी Cloudinary JSON से मैनेज किया जा सकता है
-
-3. भाषा:
-- डिफॉल्ट और एकमात्र भाषा हिंदी
-- Language switcher हटाया गया है
+**Live Site**: [https://kpg-news.vercel.app](https://kpg-news.vercel.app)
 
 ---
 
-## जरूरी Cloudinary Environment Variables
+## 🎯 Project Overview
 
-`.env.local` में ये जोड़ें:
+KPG News Portal is a fully-featured news management system with:
+- **Hindi-first content** (language switcher removed)
+- **Cloud-based article storage** via Cloudinary
+- **Admin dashboard** for content management
+- **Responsive design** for all devices
+- **Automatic fallback** to local data if Cloudinary is unavailable
+
+---
+
+## ✨ Key Features
+
+### 1. **Admin Panel** (`/admin-preview`)
+- Create and publish news articles
+- Upload images to Cloudinary
+- Manage site categories and locations
+- Edit UI content (site metadata, categories, locations)
+- Real-time preview of changes
+
+### 2. **Article Management**
+- Store articles as JSON in Cloudinary
+- Image auto-upload to Cloudinary storage
+- URL-based slug system
+- Automatic sorting by publish date
+- Local JSON fallback support
+
+### 3. **Content Organization**
+- Categorized news sections
+- Location-based news filtering
+- Responsive article cards
+- Full article pages with metadata
+
+### 4. **Cloud Integration**
+- Cloudinary raw resources for JSON storage
+- Cloudinary image folder for media
+- Secure API key management
+- Production-ready deployment
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Cloudinary account (free tier available)
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/dev-chinwan/kpg-news.git
+cd kpg-news
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Configure environment variables**
+
+Create `.env.local` in the root directory:
 
 ```env
 CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -31,134 +79,303 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ENABLE_LEGACY_ARTICLES_MIGRATION=false
 ```
 
-नोट:
-- `CLOUDINARY_API_SECRET` केवल server-side में उपयोग होता है
-- इसे कभी public client code में expose न करें
-- `ENABLE_LEGACY_ARTICLES_MIGRATION=true` करने पर ही legacy migration section और API enable होंगे
+**⚠️ Important Security Notes:**
+- `CLOUDINARY_API_SECRET` should **only** be in `.env.local` (server-side)
+- Never expose the API secret in client-side code
+- Enable legacy migration only if migrating from old articles
 
----
-
-## लोकल सेटअप (Run + Test)
-
-1. dependencies install करें:
-
-```bash
-npm install
-```
-
-2. dev server चलाएं:
-
+4. **Start development server**
 ```bash
 npm run dev
 ```
 
-3. ब्राउज़र में खोलें:
-- होम: `http://localhost:3000`
-- एडमिन: `http://localhost:3000/admin-preview`
-
-4. एडमिन से नई पोस्ट सेव करके टेस्ट करें:
-- slug, title, summary, content भरें
-- image upload करें (या image URL दें)
-- "Cloudinary में सेव करें" क्लिक करें
-
-5. verify करें:
-- API preview: `http://localhost:3000/api/news-preview`
-- साइट होम/श्रेणी/slug पेज पर नई खबर दिखनी चाहिए
+5. **Access the application**
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Admin Panel: [http://localhost:3000/admin-preview](http://localhost:3000/admin-preview)
 
 ---
 
-## Cloudinary Integration Flow
+## 📝 Usage Guide
 
-### Save Flow
+### Creating a News Article
 
-`/admin-preview` form -> `POST /api/admin/articles` ->
+1. Navigate to **Admin Panel**: `http://localhost:3000/admin-preview`
+2. Fill in the article details:
+   - **Slug**: URL-friendly identifier (auto-generated or custom)
+   - **Title**: Article headline (Hindi)
+   - **Summary**: Brief description
+   - **Content**: Full article text
+   - **Category**: News category
+   - **Location**: Location tag
+   
+3. **Upload Image**:
+   - Click "Choose Image" or paste image URL
+   - Image will auto-upload to Cloudinary
 
-1. इमेज: Cloudinary folder `news-portal/images` में अपलोड
-2. आर्टिकल JSON: Cloudinary raw `news-portal/articles/<slug>` में सेव
+4. **Save Article**:
+   - Click "Cloudinary में सेव करें" (Save to Cloudinary)
+   - JSON stored in Cloudinary raw resources
+   - Image stored in Cloudinary image folder
 
-### Read Flow
+5. **Verify**:
+   - Check API preview: `http://localhost:3000/api/news-preview`
+   - View on homepage or category pages
 
-`lib/news.js` -> `lib/cloudinaryNews.js` ->
+### Editing Site Content
 
-1. Cloudinary raw resources list
-2. हर JSON fetch + parse
-3. publishedAt desc sort
-4. data not found/Cloudinary missing => local JSON fallback
-
-### UI Content Flow
-
-- `GET /api/admin/ui-content` Cloudinary JSON से site/categories/locations लोड करता है
-- `POST /api/admin/ui-content` वही JSON Cloudinary में सेव करता है
-- Admin page पर "UI कंटेंट JSON (Cloudinary)" सेक्शन से यह कंटेंट edit करके save किया जा सकता है
-- `data/news.json` local backup/fallback के रूप में रखा गया है
-
----
-
-## इस्तेमाल हुए मुख्य फाइल बदलाव
-
-- `lib/cloudinary.js` - Cloudinary client/config helper
-- `lib/cloudinaryNews.js` - article save/read logic
-- `app/api/admin/articles/route.js` - admin POST/GET API
-- `components/AdminPostForm.js` - admin save form
-- `lib/news.js` - Cloudinary-first read + fallback
-- `app/api/news-preview/route.js` - active data response
-- `components/Header.js` - language switcher remove
-- `lib/i18n.js` - Hindi-only normalization
-- `app/layout.js` - html lang + metadata Hindi
+1. Scroll to "UI Content JSON (Cloudinary)" section
+2. Edit site metadata, categories, or locations
+3. Click save to update Cloudinary storage
+4. Changes reflect immediately on the frontend
 
 ---
 
-## Vercel Deploy Steps
+## 🏗️ Architecture
 
-1. कोड GitHub/GitLab/Bitbucket पर push करें
-2. Vercel में नया project import करें
-3. Framework: Next.js auto-detect होने दें
-4. Vercel Project Settings -> Environment Variables में जोड़ें:
-- `CLOUDINARY_CLOUD_NAME`
-- `CLOUDINARY_API_KEY`
-- `CLOUDINARY_API_SECRET`
-- `NEXT_PUBLIC_SITE_URL` = production domain (e.g. `https://your-domain.vercel.app`)
-5. Deploy करें
+### Data Flow
 
-### Deploy के बाद Quick Smoke Test
+#### Save Flow
+```
+Admin Form 
+  ↓
+POST /api/admin/articles
+  ├→ Upload Image to Cloudinary (news-portal/images)
+  └→ Save JSON to Cloudinary (news-portal/articles/<slug>)
+```
 
-1. `https://your-domain/admin-preview` खोलें
-2. एक टेस्ट पोस्ट सेव करें
-3. `https://your-domain/api/news-preview` में नई entry check करें
-4. होम/slug पेज पर पोस्ट दिख रही है या नहीं verify करें
+#### Read Flow
+```
+Frontend
+  ↓
+lib/news.js → lib/cloudinaryNews.js
+  ├→ List Cloudinary raw resources
+  ├→ Fetch and parse each JSON
+  ├→ Sort by publishedAt (descending)
+  └→ Fallback to data/news.json if unavailable
+```
+
+#### UI Content Flow
+```
+Admin → GET /api/admin/ui-content → Cloudinary JSON
+Admin → POST /api/admin/ui-content → Save to Cloudinary
+```
+
+### File Structure
+```
+.
+├── app/
+│   ├── api/
+│   │   ├── admin/articles/route.js       # Article CRUD API
+│   │   └── admin/ui-content/route.js     # Site content API
+│   │   └── news-preview/route.js         # Public news API
+│   ├── layout.js                          # App layout (Hindi config)
+│   └── pages/                            # Dynamic routes
+├── components/
+│   ├── AdminPostForm.js                  # Admin form component
+│   └── Header.js                         # Header (no language switcher)
+├── lib/
+│   ├── cloudinary.js                     # Cloudinary config
+│   ├── cloudinaryNews.js                 # Article read/write logic
+│   ├── news.js                           # News data layer
+│   └── i18n.js                           # Hindi-only i18n
+├── data/
+│   └── news.json                         # Local fallback data
+└── public/                               # Static assets
+```
 
 ---
 
-## Common Troubleshooting
+## 🌐 Environment Variables
 
-1. Error: Cloudinary is not configured
-- `.env.local` keys missing हैं या server restart नहीं किया गया
-
-2. Image upload fail
-- API key/secret गलत
-- Cloudinary account limits/check
-
-3. Post save success but list में नहीं दिख रही
-- slug duplicate होने पर overwrite behavior check करें
-- `/api/news-preview` response inspect करें
-
-4. Vercel पर काम नहीं कर रहा
-- Project env vars set हैं या नहीं verify करें
-- Redeploy after env update
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `CLOUDINARY_CLOUD_NAME` | Yes | Your Cloudinary account name |
+| `CLOUDINARY_API_KEY` | Yes | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Yes | Cloudinary API secret (server-only) |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Application URL (public) |
+| `ENABLE_LEGACY_ARTICLES_MIGRATION` | No | Enable migration API (default: false) |
 
 ---
 
-## Security Notes
+## 📦 Tech Stack
 
-- `CLOUDINARY_API_SECRET` केवल server env में रखें
-- client-side JS में secret कभी न रखें
-- production में admin route पर auth ज़रूर जोड़ें
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Next.js | 16.3.3 | React framework |
+| React | 19.0.0 | UI library |
+| Tailwind CSS | 3.4.17 | Styling |
+| Lucide React | 0.469.0 | Icons |
+| Cloudinary | 2.8.0 | Media & storage |
 
 ---
 
-## Next Recommended Improvements
+## 🚢 Deployment (Vercel)
 
-1. `/admin-preview` और `/api/admin/articles` पर authentication जोड़ें
-2. Article delete/update workflow जोड़ें
-3. Cloudinary upload preset + moderation pipeline जोड़ें
-4. Audit log या version history जोड़ें
+### Step-by-Step
+
+1. **Push code to GitHub**
+```bash
+git add .
+git commit -m "Deploy to Vercel"
+git push origin main
+```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Add New" → "Project"
+   - Import your GitHub repository
+   - Framework: Next.js (auto-detected)
+
+3. **Configure Environment Variables**
+   - In Vercel dashboard → Project Settings → Environment Variables
+   - Add all variables from `.env.local`
+   - **Important**: `NEXT_PUBLIC_SITE_URL` should be your production domain
+     ```
+     https://your-domain.vercel.app
+     ```
+
+4. **Deploy**
+   - Click "Deploy"
+   - Wait for build to complete
+
+### Post-Deployment Verification
+
+1. Open admin panel: `https://your-domain.vercel.app/admin-preview`
+2. Create a test article
+3. Check API: `https://your-domain.vercel.app/api/news-preview`
+4. Verify on homepage and category pages
+
+---
+
+## 🔧 Development
+
+### Available Scripts
+
+```bash
+npm run dev          # Start development server (with hot reload)
+npm run dev:insecure # Dev server with insecure TLS (if needed)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+```
+
+### API Endpoints
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/news-preview` | GET | Fetch all articles |
+| `/api/admin/articles` | GET | List articles |
+| `/api/admin/articles` | POST | Save article |
+| `/api/admin/ui-content` | GET | Fetch site content |
+| `/api/admin/ui-content` | POST | Update site content |
+
+---
+
+## ⚠️ Troubleshooting
+
+### Issue: "Cloudinary is not configured"
+**Solution:**
+- Verify `.env.local` has correct credentials
+- Restart dev server after updating env vars
+- Check Cloudinary dashboard for valid API keys
+
+### Issue: Image upload fails
+**Solution:**
+- Verify `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET`
+- Check Cloudinary account limits/quotas
+- Ensure image format is supported (JPG, PNG, GIF, WebP)
+
+### Issue: Articles save but don't appear in list
+**Solution:**
+- Check slug uniqueness (duplicates may overwrite)
+- Inspect `/api/news-preview` response
+- Verify Cloudinary raw resource contains the JSON
+- Check browser console for errors
+
+### Issue: Not working on Vercel after deploy
+**Solution:**
+- Verify all environment variables are set in Vercel dashboard
+- Redeploy after updating env vars
+- Check build logs for errors
+- Ensure `NEXT_PUBLIC_SITE_URL` is production domain
+
+### Issue: Articles not persisting after server restart
+**Solution:**
+- This is expected behavior (articles stored in Cloudinary)
+- Verify Cloudinary credentials are correct
+- Check local fallback in `data/news.json`
+
+---
+
+## 🔐 Security Best Practices
+
+### Critical
+- ✅ Keep `CLOUDINARY_API_SECRET` **only** in `.env.local`
+- ✅ Never commit `.env.local` to git
+- ✅ Add `.env.local` to `.gitignore`
+
+### Recommended
+- 🔒 **Add authentication** to `/admin-preview` route (required for production)
+- 🔒 **Implement rate limiting** on article creation API
+- 🔒 **Add article moderation** pipeline before publishing
+- 🔒 **Enable request validation** for all admin endpoints
+- 🔒 **Log all admin actions** for audit trail
+
+---
+
+## 📋 Roadmap & Improvements
+
+### Planned Features
+- [ ] **Admin Authentication**: Secure login system
+- [ ] **Article Editing/Deletion**: Full CRUD workflow
+- [ ] **Upload Presets**: Cloudinary upload presets + moderation
+- [ ] **Version History**: Track article changes
+- [ ] **Bulk Operations**: Import/export articles
+- [ ] **Analytics**: View counts and engagement metrics
+- [ ] **Scheduled Publishing**: Schedule articles for future publish
+- [ ] **Draft System**: Save articles as draft before publishing
+
+### Current Limitations
+- No user authentication (add before production)
+- No article versioning
+- No bulk operations
+- No moderation workflow
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m 'Add your feature'`
+4. Push to branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Not specified. Add a license file if needed.
+
+---
+
+## 📞 Support
+
+For issues or questions:
+1. Check [Troubleshooting](#-troubleshooting) section
+2. Review Cloudinary documentation: [cloudinary.com/docs](https://cloudinary.com/docs)
+3. Check Next.js docs: [nextjs.org/docs](https://nextjs.org/docs)
+4. Open an issue on GitHub
+
+---
+
+## 📍 Project Info
+
+- **Author**: dev-chinwan
+- **Repository**: [dev-chinwan/kpg-news](https://github.com/dev-chinwan/kpg-news)
+- **Status**: Active Development
+- **Last Updated**: September 2026
+
+---
+
+**Made with ❤️ for local Hindi news**
