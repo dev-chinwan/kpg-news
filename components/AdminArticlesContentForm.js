@@ -120,7 +120,7 @@ export default function AdminArticlesContentForm() {
       />
 
       <p className="mt-2 text-xs text-slate font-body-hi">
-        नोट: यह bulk upsert workflow है। किसी article को हटाने के लिए existing delete action या migration tools इस्तेमाल करें।
+        नोट: यह bulk upsert workflow है। किसी article को हटाने के लिए existing delete action इस्तेमाल करें।
       </p>
 
       {status.message ? (

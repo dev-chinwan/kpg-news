@@ -4,9 +4,10 @@ import { getStoredArticles } from "@/lib/cloudinaryNews";
 import newsData from "@/data/news.json";
 import { requireAdminAuth } from "@/lib/adminAuth";
 import { enforceRateLimit } from "@/lib/rateLimit";
+import { ADMIN_ROLE } from "@/lib/adminSession";
 
 export async function GET(request) {
-  const authError = requireAdminAuth(request);
+  const authError = requireAdminAuth(request, { minRole: ADMIN_ROLE });
   if (authError) return authError;
 
   const content = await getUiContent();
@@ -35,7 +36,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const authError = requireAdminAuth(request);
+  const authError = requireAdminAuth(request, { minRole: ADMIN_ROLE });
   if (authError) return authError;
 
   const limited = enforceRateLimit(request, {

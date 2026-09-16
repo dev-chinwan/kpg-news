@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import CategoryNav from "./CategoryNav";
 import SearchBox from "./SearchBox";
 import { pick, localizedHref } from "@/lib/i18n";
@@ -11,6 +12,7 @@ export default function Header({
   lang,
   siteName,
   tagline,
+  siteLogo,
   categories,
   dateLabel,
   activeCategory,
@@ -18,6 +20,7 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
   const fontHi = "font-display-hi";
   const fontBodyHi = "font-body-hi";
+  const hasLogo = Boolean(siteLogo?.url);
 
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur border-b border-rule">
@@ -32,11 +35,24 @@ export default function Header({
         {/* Masthead */}
         <div className="flex items-center justify-between py-3 md:py-4">
           <Link href={localizedHref("/", lang)} className="min-w-0">
-            <div
-              className={`${fontHi} text-2xl md:text-3xl font-bold tracking-tight text-ink leading-none`}
-            >
-              {siteName}
-            </div>
+            {hasLogo ? (
+              <div className="relative h-12 md:h-14 w-[150px] md:w-[180px]">
+                <Image
+                  src={siteLogo.url}
+                  alt={siteLogo.alt || siteName}
+                  fill
+                  sizes="(min-width: 768px) 180px, 150px"
+                  className="object-contain object-left"
+                  priority
+                />
+              </div>
+            ) : (
+              <div
+                className={`${fontHi} text-2xl md:text-3xl font-bold tracking-tight text-ink leading-none`}
+              >
+                {siteName}
+              </div>
+            )}
             <div className={`hidden md:block ${fontBodyHi} text-xs text-sindoor mt-1 tracking-wide`}>
               {tagline}
             </div>

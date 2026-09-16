@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import SiteShell from "@/components/SiteShell";
 import ArticleView from "@/components/ArticleView";
+import ArticleViewTracker from "@/components/ArticleViewTracker";
 import {
   getNewsBySlug,
   getAllNews,
@@ -94,6 +95,7 @@ export default async function ArticlePage({ params, searchParams }) {
 
   return (
     <SiteShell lang={lang} activeCategory={article.category}>
+      <ArticleViewTracker articleId={article.id} articleTitle={pick(article.title, "hi")} />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger

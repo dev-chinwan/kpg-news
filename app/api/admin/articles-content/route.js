@@ -4,6 +4,7 @@ import { requireAdminAuth } from "@/lib/adminAuth";
 import { enforceRateLimit } from "@/lib/rateLimit";
 import { isCloudinaryConfigured } from "@/lib/cloudinary";
 import { getStoredArticles, syncArticlesToCloudinary } from "@/lib/cloudinaryNews";
+import { ADMIN_ROLE } from "@/lib/adminSession";
 
 function normalizeIncomingArticle(raw, index) {
   const contentHi = Array.isArray(raw?.content?.hi)
@@ -44,7 +45,7 @@ function buildLocalPayload() {
 }
 
 export async function GET(request) {
-  const authError = requireAdminAuth(request);
+  const authError = requireAdminAuth(request, { minRole: ADMIN_ROLE });
   if (authError) return authError;
 
   const localPayload = buildLocalPayload();
@@ -81,7 +82,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const authError = requireAdminAuth(request);
+  const authError = requireAdminAuth(request, { minRole: ADMIN_ROLE });
   if (authError) return authError;
 
   const limited = enforceRateLimit(request, {

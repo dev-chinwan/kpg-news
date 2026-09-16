@@ -40,7 +40,7 @@ export default function AdminLoginForm() {
     <form onSubmit={handleSubmit} className="w-full max-w-md border border-rule rounded-xl p-5 bg-white grid gap-4">
       <h1 className="font-display-hi text-2xl font-bold text-ink">Admin Sign In</h1>
       <p className="text-sm text-slate font-body-hi">
-        Enter admin token once. Session cookie will keep you signed in.
+        Login to sign in as an admin
       </p>
 
       <label className="text-sm text-slate grid gap-1 font-body-hi">
@@ -51,7 +51,7 @@ export default function AdminLoginForm() {
           value={token}
           onChange={(e) => setToken(e.target.value)}
           className="border border-rule rounded-lg px-3 py-2 text-ink"
-          placeholder="ADMIN_AUTH_SECRET"
+          placeholder="ADMIN_AUTH_SECRET या SUBADMIN_AUTH_SECRET"
         />
       </label>
 

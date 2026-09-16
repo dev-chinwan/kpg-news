@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
-import { ADMIN_SESSION_COOKIE, isAdminSessionValid } from "@/lib/adminSession";
+import { ADMIN_SESSION_COOKIE, getAdminSessionRole } from "@/lib/adminSession";
 
 export async function GET(request) {
   const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value || "";
+  const role = getAdminSessionRole(token);
   return NextResponse.json({
     ok: true,
-    authenticated: isAdminSessionValid(token),
+    authenticated: Boolean(role),
+    role,
   });
 }

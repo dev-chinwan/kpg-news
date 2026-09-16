@@ -5,7 +5,7 @@ import {
   buildAdminSessionToken,
   getAdminSessionCookieOptions,
 } from "@/lib/adminSession";
-import { getExpectedAdminToken } from "@/lib/adminAuth";
+import { resolveRoleForToken } from "@/lib/adminAuth";
 
 export async function POST(request) {
   const limited = enforceRateLimit(request, {
@@ -19,24 +19,16 @@ export async function POST(request) {
   try {
     const body = await request.json().catch(() => ({}));
     const token = String(body?.token || "").trim();
-    const expected = getExpectedAdminToken();
-
-    if (!expected) {
-      return NextResponse.json(
-        { ok: false, error: "ADMIN_AUTH_SECRET is missing on server." },
-        { status: 500 }
-      );
-    }
-
-    if (!token || token !== expected) {
+    const role = resolveRoleForToken(token);
+    if (!role) {
       return NextResponse.json(
         { ok: false, error: "Invalid admin token." },
         { status: 401 }
       );
     }
 
-    const sessionToken = buildAdminSessionToken();
-    const response = NextResponse.json({ ok: true });
+    const sessionToken = buildAdminSessionToken(role);
+    const response = NextResponse.json({ ok: true, role });
     response.cookies.set(
       ADMIN_SESSION_COOKIE,
       sessionToken,

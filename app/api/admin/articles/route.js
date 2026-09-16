@@ -111,11 +111,10 @@ export async function POST(request) {
       image: existingImage,
       author: String(formData.get("author") || "लोकल न्यूज़ डेस्क").trim(),
       source: String(formData.get("source") || "लोकल न्यूज़").trim(),
-      sourceUrl: String(formData.get("sourceUrl") || "").trim(),
       publishedAt:
         String(formData.get("publishedAt") || "").trim() || new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      featured: parseBoolean(formData.get("featured")),
+      featured: true,
       breaking: parseBoolean(formData.get("breaking")),
       trending: parseBoolean(formData.get("trending")),
       views: Number(formData.get("views") || 0),

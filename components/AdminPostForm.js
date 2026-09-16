@@ -11,12 +11,11 @@ const INITIAL_FORM = {
   location: "",
   author: "",
   source: "",
-  sourceUrl: "",
   imageUrl: "",
   publishedAt: null,
   tags: "",
   views: "0",
-  featured: false,
+  featured: true,
   breaking: false,
   trending: false,
 };
@@ -119,12 +118,11 @@ export default function AdminPostForm({ categories, locations }) {
       location: article.location || locations?.[0]?.id || "dehradun",
       author: article.author || "",
       source: article.source || "",
-      sourceUrl: article.sourceUrl || "",
       imageUrl: article.image || "",
       publishedAt: toDatetimeLocalValue(article.publishedAt),
       tags: Array.isArray(article.tags) ? article.tags.join(", ") : "",
       views: String(article.views ?? 0),
-      featured: Boolean(article.featured),
+      featured: true,
       breaking: Boolean(article.breaking),
       trending: Boolean(article.trending),
     });
@@ -374,14 +372,6 @@ export default function AdminPostForm({ categories, locations }) {
                 className="border border-rule rounded-lg px-3 py-2 text-ink"
               />
             </label>
-            <label className="text-sm text-slate grid gap-1">
-              स्रोत URL
-              <input
-                value={form.sourceUrl}
-                onChange={(e) => setField("sourceUrl", e.target.value)}
-                className="border border-rule rounded-lg px-3 py-2 text-ink"
-              />
-            </label>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 font-body-hi">
@@ -411,7 +401,8 @@ export default function AdminPostForm({ categories, locations }) {
               <input
                 type="checkbox"
                 checked={form.featured}
-                onChange={(e) => setField("featured", e.target.checked)}
+                disabled
+                readOnly
               />
               प्रमुख खबर
             </label>

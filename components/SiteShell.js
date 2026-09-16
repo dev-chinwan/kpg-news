@@ -21,6 +21,7 @@ export default async function SiteShell({
         lang={lang}
         siteName={pick(site.name, lang)}
         tagline={pick(site.tagline, lang)}
+        siteLogo={site.logo || null}
         categories={categories}
         dateLabel={dateLabel}
         activeCategory={activeCategory}
